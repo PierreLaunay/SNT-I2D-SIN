@@ -170,7 +170,7 @@ while True :
 
 ### La carte Microbit gère les antirebonds.
 
-
+Voir dans [Hardware](microbit_hardware_V1-5.md) 
 
 ### Modulo en python
 
