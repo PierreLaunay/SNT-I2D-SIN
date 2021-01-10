@@ -9,7 +9,7 @@ v2  **v1.5**  v1.3x
 Overview
 --------
 
--   [Overview](#overview){#markdown-toc-overview}
+-   [Overview](#overview)
 -   [Getting Started With the micro:bit
     Hardware](#getting-started-with-the-microbit-hardware){#markdown-toc-getting-started-with-the-microbit-hardware}
 -   [Hardware
