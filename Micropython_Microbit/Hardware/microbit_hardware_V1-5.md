@@ -11,30 +11,30 @@ Overview
 
 -   [Overview](#overview)
 -   [Getting Started With the micro:bit
-    Hardware](#getting-started-with-the-microbit-hardware){#markdown-toc-getting-started-with-the-microbit-hardware}
+    Hardware](#getting-started-with-the-microbit-hardware)
 -   [Hardware
-    Description](#hardware-description){#markdown-toc-hardware-description}
+    Description](#hardware-description)
     -   [nRF51 Application
-        Processor](#nrf51-application-processor){#markdown-toc-nrf51-application-processor}
+        Processor](#nrf51-application-processor)
     -   [Bluetooth Wireless
-        Communication](#bluetooth-wireless-communication){#markdown-toc-bluetooth-wireless-communication}
+        Communication](#bluetooth-wireless-communication)
     -   [Low Level Radio
-        Communications](#low-level-radio-communications){#markdown-toc-low-level-radio-communications}
-    -   [Buttons](#buttons){#markdown-toc-buttons}
-    -   [Display](#display){#markdown-toc-display}
-    -   [Motion sensor](#motion-sensor){#markdown-toc-motion-sensor}
+        Communications](#low-level-radio-communications)
+    -   [Buttons](#buttons)
+    -   [Display](#display)
+    -   [Motion sensor](#motion-sensor)
     -   [Temperature
-        Sensing](#temperature-sensing){#markdown-toc-temperature-sensing}
+        Sensing](#temperature-sensing)
     -   [General Purpose Input/Output
-        Pins](#general-purpose-inputoutput-pins){#markdown-toc-general-purpose-inputoutput-pins}
-    -   [Power Supply](#power-supply){#markdown-toc-power-supply}
-    -   [Interface](#interface){#markdown-toc-interface}
+        Pins](#general-purpose-inputoutput-pins)
+    -   [Power Supply](#power-supply)
+    -   [Interface](#interface)
     -   [USB
-        Communications](#usb-communications){#markdown-toc-usb-communications}
-    -   [Debugging](#debugging){#markdown-toc-debugging}
-    -   [Mechanical](#mechanical){#markdown-toc-mechanical}
+        Communications](#usb-communications)
+    -   [Debugging](#debugging)
+    -   [Mechanical](#mechanical)
 -   [Further
-    information](#further-information){#markdown-toc-further-information}
+    information](#further-information)
 
 ![img](microbit-overview-1-5.png)
 
