@@ -25,7 +25,7 @@ Le document principal [La carte Microbit Joliot Curie 2021.md](La%20carte%20Micr
 2 documents dans Hardware :
 
  - [edgeconnector.md](Hardware/edgeconnector.md)
- - [microbit_hardware_V1-5.md](Hardware/microbit_hardware_V1-5.md])
+ - [microbit_hardware_V1-5.md](Hardware/microbit_hardware_V1-5.md)
 
 2 documents dans externe :
 
