@@ -156,8 +156,8 @@ Ce programme affiche un dictionnaire python avec 3 arguments PM2.5 et sa valeur 
 
 Voici [ce programme](Jupyter/PMSensor_pyplot/PMSensor_pyplot.md)
 
-- Récepteur GPS (UART liaison série)
-------------------------------------
+Récepteur GPS (UART liaison série)
+----------------------------------
 
 Le principe de fonctionnement reste identique aux capteur de particules, la liaison série permet de lire l'information GPS du capteur et de l'afficher sur l'écran du PC.
 
