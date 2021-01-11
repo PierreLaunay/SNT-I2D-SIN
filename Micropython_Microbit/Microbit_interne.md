@@ -8,7 +8,7 @@ Programmation de base de la carte Microbit
 
  - [Le capteur de température interne](#Le-capteur-de-température-interne)
  - [Boussole](#Boussole)
- - [L'accéléromètre](#L'accéléromètre)
+ - [L'accéléromètre](#Accéléromètre)
  - [Accéléromètre : graphique avec Mu-code](#Graphique-avec-Mu-code)
  - [Radio et Bluetooth](#Radio-et-Bluetooth)
  - [Enfin pour finir voici la communication Réseau ou Network](#Enfin-pour-finir-voici-la-communication-Réseau-ou-Network)
@@ -406,7 +406,7 @@ while True:
 ### La carte Microbit n'a que 32ko de RAM, micropython et MICRORAM par rapport à un PC !
 
 
-L'accéléromètre
+Accéléromètre
 ---------------
 
 ### Gestes

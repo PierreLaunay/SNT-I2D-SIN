@@ -1,5 +1,5 @@
-Microbit capteurs extérieurs
-============================
+Microbit capteurs externes
+==========================
 
 Pour brancher des capteurs extérieurs, on peut utiliser des pinces crocodiles, mais le plus pratique reste une carte d'interface.
 
@@ -20,12 +20,12 @@ Cette carte est à réserver aux enseignants et aux élèves qui font attention.
 Les capteurs externes
 ----------------------
 
-- [Capteur de luminosité (entrée analogique)](#Capteur-de-luminosité-GA1A1S202WP-(entrée-analogique))
+- [Capteur de luminosité (entrée analogique)](#Capteur-de-luminosité-GA1A1S202WP-entrée-analogique)
 - [Capteur de température et humidité DHT 11 Grove.](#Capteur-de-température-et-humidité-DHT-11-Grove)
-- [Horloge temps réel DS3231 RTC (bus I2C)](#Horloge-temps-réel-DS3231-RTC-(bus-I2C))
-- [Capteur de particules fines SDS011 (UART liaison série)](#Capteur-de-particules-fines-SDS011-(UART-liaison-série))
-- [Programmes de visualisation de données pour les particules fines en python.](#On-peut-aussi-afficher-la-valeur-avec-ce-programme-PMSensor_pyplot.ipynb-sous-Jupyter-Notebook)
-- [Récepteur GPS (UART liaison série)](#Récepteur-GPS-(UART-liaison-série))
+- [Horloge temps réel DS3231 RTC (bus I2C)](#Horloge-temps-réel-DS3231-RTC-bus-I2C)
+- [Capteur de particules fines SDS011 (UART liaison série)](#Capteur-de-particules-fines-SDS011-UART-liaison-série)
+- [Programmes de visualisation de données pour les particules fines en python.](#On-peut-aussi-afficher-la-valeur-avec-ce-programme-PMSensor_pyplotipynb-sous-Jupyter-Notebook)
+- [Récepteur GPS (UART liaison série)](#Récepteur-GPS-UART-liaison-série)
 
 
 Capteur de luminosité GA1A1S202WP (entrée analogique)
