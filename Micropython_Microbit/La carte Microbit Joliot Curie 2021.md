@@ -4,8 +4,8 @@ La carte Microbit  Joliot Curie 2021
 - [Présentation de la carte MICROBIT](#Présentation-de-la-carte-MICROBIT)
 - [Comparaison ARDUINO  et MICROBIT](#Comparaison-des-cartes-de-développement-ARDUINO-et-MICROBIT)
 - [Les outils logiciels pour travailler avec la carte MICROBIT](#Les-outils-logiciels-pour-travailler-avec-la-carte-MICROBIT)
-- [Programme de base avec les ressources internes](Programmes-de-base-avec-les-ressources-internes)
-- [Capteurs externes et carte MicroBit](Capteurs-externes-et-carte-MicroBit)
+- [Programme de base avec les ressources internes](#Programmes-de-base-avec-les-ressources-internes)
+- [Capteurs externes et carte MicroBit](#Capteurs-externes-et-carte-MicroBit)
 
 Présentation de la carte MICROBIT
 ----------------------------------

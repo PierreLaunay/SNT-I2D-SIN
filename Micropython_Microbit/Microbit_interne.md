@@ -1,11 +1,19 @@
 Programmation de base de la carte Microbit
 ==========================================
-![Image microbit](Images/microbit-front.png)
 
-```python
-import microbit # bibliothèque nécessaire pour travailler avec la carte microbit
-microbit.display.clear() # on efface les leds
-```
+ - [Activité pratique Informatique embarquée AP-IE01P](#Activité-pratique-Informatique-embarquée-AP-IE01P)
+ - [Activité pratique Informatique embarquée AP-IE02P](#Activité-pratique-Informatique-embarquée-AP-IE02P)
+ - [Activité pratique structure de contrôle If multiple AP-IE03P](#Activité-pratique-structure-de-contrôle-If-multiple-AP-IE03P)
+ - [Programmation de base structure de contrôle if else et mémoire AP-IE04P](#Programmation-de-base-structure-de-contrôle-if-else-et-mémoire-AP-IE04P)
+
+ - [Le capteur de température interne](#Le-capteur-de-température-interne)
+ - [Boussole](#Boussole)
+ - [L'accéléromètre](#L'accéléromètre)
+ - [Accéléromètre : graphique avec Mu-code](#Graphique-avec-Mu-code)
+ - [Radio et Bluetooth](#Radio-et-Bluetooth)
+ - [Enfin pour finir voici la communication Réseau ou Network](#Enfin-pour-finir-voici-la-communication-Réseau-ou-Network)
+
+![Image microbit](Images/microbit-front.png)
 
 ## Activité pratique Informatique embarquée AP-IE01P
 
@@ -14,6 +22,9 @@ microbit.display.clear() # on efface les leds
 
 ```python
 # programme 1
+import microbit # bibliothèque nécessaire pour travailler avec la carte microbit
+microbit.display.clear() # on efface les leds
+
 while True :
     if microbit.button_a.is_pressed():
         microbit.display.set_pixel(2,2,9)
@@ -28,7 +39,12 @@ Je profite de ce premier exemple en micropython pour présenter la mise en forme
  - Après un if  on a la même chose, une condition et un **:**  
  - Toutes les lignes qui correspondent au then sont **indentées**, décalage d'une tabulation, soit 2 tabulations pour la ligne microbit.display.set_pixel()
 
-*Remarque* : pas besoin de parenthèse pour la condition du if et pas besoin de ;  à la fin de chaque ligne, les accolades sont remplacées par des : et l'indentation.
+*Remarque1* : pas besoin de parenthèse pour la condition du if et pas besoin de ;  à la fin de chaque ligne, les accolades sont remplacées par des : et l'indentation.
+
+*Remarque2* : La partie avant le while True : correspond en python à la partie  
+Déclaration des bibliothèques et le setup()  en ARDUINO  
+Il n'y a pas de déclarations de variables en Python, elles sont locales par défaut !  
+La partie après le while True : correspond au loop() sur ARDUINO
 
 ### Q1) Que se passe-t-il si j'appuie sur le bouton poussoir 'a' et que je le relâche ?
 <span style="color:red">La LED s'allume et ne s'éteint pas !  <br>
@@ -100,7 +116,7 @@ Algorigramme du simple **Si**
 ![Algo_Si](Images/algo_si_sinon_µB.svg)
 Algorigramme du **Si -- sinon**
 
-## Programmation de base : structure de contrôle If multiple AP-IE03P
+## Activité pratique structure de contrôle If multiple AP-IE03P
 
 ### Simulation des boutons Marche Arrêt industriels
 ![bouton_marche_arret](Images/Marche_Arret.png)
@@ -151,12 +167,11 @@ while True :
 ### Q9) Donner l'algorigramme du programme n°3
 ![Algo_Si](Images/algo_si2_µB.svg)
 
-## Programmation de base : structure de contrôle if else et mémoire AP-IE04P
+## Programmation de base structure de contrôle if else et mémoire AP-IE04P
 ### Télérupteur
 
 **Si j'appuie sur un des boutons poussoirs la lampe change d'état.**  
 La lampe est éteinte, j'appuie sur un BP, elle s'allume. J'appuie de nouveau sur un BP, la lampe s'éteint.
-
 
 ```python
 # programme 5
@@ -170,7 +185,7 @@ while True :
 
 ### La carte Microbit gère les antirebonds.
 
-Voir dans [Hardware](microbit_hardware_V1-5.md) 
+Voir dans [Hardware](Hardware/microbit_hardware_V1-5.md)
 
 ### Modulo en python
 

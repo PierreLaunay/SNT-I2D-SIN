@@ -17,16 +17,16 @@ D'autres modules peuvent fonctionner mais leurs bibliothèques ne sont pas dispo
 
 Cette carte est à réserver aux enseignants et aux élèves qui font attention.
 
-Les capteurs extérieurs
-------------------------
+Les capteurs externes
+----------------------
 
-- Capteur de luminosité (entrée analogique)
-- Capteur de température et humidité DHT 11 Grove.
-- Horloge temps réel DS3231 RTC (bus I2C)
-- Capteur de particules fines SDS011 (UART liaison série)
-- Récepteur GPS (UART liaison série)
+- [Capteur de luminosité (entrée analogique)](#Capteur-de-luminosité-GA1A1S202WP-(entrée-analogique))
+- [Capteur de température et humidité DHT 11 Grove.](#Capteur-de-température-et-humidité-DHT-11-Grove)
+- [Horloge temps réel DS3231 RTC (bus I2C)](#Horloge-temps-réel-DS3231-RTC-(bus-I2C))
+- [Capteur de particules fines SDS011 (UART liaison série)](#Capteur-de-particules-fines-SDS011-(UART-liaison-série))
+- [Programmes de visualisation de données pour les particules fines en python.](#On-peut-aussi-afficher-la-valeur-avec-ce-programme-PMSensor_pyplot.ipynb-sous-Jupyter-Notebook)
+- [Récepteur GPS (UART liaison série)](#Récepteur-GPS-(UART-liaison-série))
 
-- Programmes de visualisation de données pour les particules fines en python.
 
 Capteur de luminosité GA1A1S202WP (entrée analogique)
 -----------------------------------------------------
@@ -42,8 +42,8 @@ lux=10**(valeur*4.74/1024)
 print(lux)
 ```
 
-Capteur de température et humidité DHT 11 Grove, bibliothèque spécifique.
--------------------------------------------------------------------------
+Capteur de température et humidité DHT 11 Grove
+-----------------------------------------------
 
 Voici le programme principal du DHT11
 
@@ -59,7 +59,7 @@ while True:
     time.sleep(2)
 ```
 
-Il faut télécharger la classe DHT11 depuis github [https://github.com/rhubarbdog/microbit-dht11/blob/master/dht11.py](https://github.com/rhubarbdog/microbit-dht11/blob/master/dht11.py)
+Il faut une bibliothèque spécifique la classe DHT11 à télécharger depuis github [https://github.com/rhubarbdog/microbit-dht11/blob/master/dht11.py](https://github.com/rhubarbdog/microbit-dht11/blob/master/dht11.py)
 
 Horloge temps réel DS3231 RTC (bus I2C)
 ---------------------------------------
@@ -125,7 +125,7 @@ Capteur de particules fines SDS011 (UART liaison série)
 
 Ce capteur fonctionne avec la liaison série.
 
-Voici les [informations utiles](carte%20extérieure/Laser_PM2-5_Sensor.html) pour s'en servir.
+Voici les [informations utiles](Externe/Laser_PM2-5_Sensor.md) pour s'en servir.
 
 Comme vous pouvez le voir dans ce programme, on bascule la liaison série entre le capteur de particules fines et l'écran du PC via le port USB pour afficher les valeurs de PM10 et PM2.5
 
@@ -152,9 +152,9 @@ while True : #boucle sans fin
 
 Ce programme affiche un dictionnaire python avec 3 arguments PM2.5 et sa valeur µg/m3, PM10 et sa valeur en µg/m3 ainsi temps et sa valeur en ms. C'est la forme la plus simple d'un fichier json.
 
-On peut aussi afficher la valeur avec ce programme PMSensor_pyplot.ipynb sous Jupyter Notebook
+### On peut aussi afficher la valeur avec ce programme PMSensor_pyplot.ipynb sous Jupyter Notebook
 
-Voici une [version html de ce programme](PMSensor_pyplot.html)
+Voici [ce programme](Jupyter/PMSensor_pyplot/PMSensor_pyplot.md)
 
 - Récepteur GPS (UART liaison série)
 ------------------------------------
@@ -171,7 +171,7 @@ while True : #boucle sans fin
         content=microbit.uart.read() #lecture de 10 caractères voir DOC SDS011
         if 'GPRMC' in content :
             microbit.uart.init(baudrate=115200) # on remet la liaison série sur l'USB et on change la vitesse à 115200 bauds
-            message = content.split()[0]
+            message = content.split()[0] #on prend le premier terme de GPRMC avant un caractère spécial
             print(message) # Pour voir les données brutes
             microbit.uart.init(baudrate=9600,tx = microbit.pin0, rx = microbit.pin1)
 ```
@@ -199,4 +199,4 @@ $GPRMC,053740.000,A,2503.6319,N,12136.0099,E,2.69,79.65,100106,,,A*53
 
 Afficher l'heure UTC et la date ainsi que la latitude et la longitude.
 
-Pour séparer les termes séparés par une virgule en python, on pourra utiliser la fonction split(',')
+Pour faire une liste des termes séparés par une virgule en python, on pourra utiliser la fonction split(',')
