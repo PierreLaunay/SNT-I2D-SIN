@@ -15,7 +15,7 @@ Les documents de référence en Micropython pour Microbit :
 Les documents de ce site
 ------------------------
 
-Le document principal [La carte Microbit Joliot Curie 2021.md](La-carte-Microbit-Joliot-Curie-2021.md)
+Le document principal [La carte Microbit Joliot Curie 2021.md](La carte Microbit Joliot Curie 2021.md)
 
 - Des programmes avec les composants internes à la carte Microbit [Microbit_interne.md](Microbit_interne.md)
 - Des programmes avec des capteurs externes à la carte Microbit [Microbit_externe.md](Microbit_externe.md)
@@ -30,7 +30,7 @@ Le document principal [La carte Microbit Joliot Curie 2021.md](La-carte-Microbit
 2 documents dans externe :
 
  - [Laser_PM2-5_Sensor.md](Externe/Laser_PM2-5_Sensor.md)
- - [Câblage du capteur de pollution particules fines SDS011.md](Externe/Câblage-du-capteur-de-pollution-particules-fines-SDS011.md)
+ - [Câblage du capteur de pollution particules fines SDS011.md](Externe/Câblage du capteur de pollution particules fines SDS011.md)
 
 Un exemple de graphe avec Jupyter Notebook dans le dossier Jupyter
 
