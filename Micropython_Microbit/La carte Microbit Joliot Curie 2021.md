@@ -3,9 +3,9 @@ La carte Microbit  Joliot Curie 2021
 
 - [Présentation de la carte MICROBIT](#Présentation-de-la-carte-MICROBIT)
 - [Comparaison ARDUINO  et MICROBIT](#Comparaison-des-cartes-de-développement-ARDUINO-et-MICROBIT)
-- Les outils logiciels pour travailler avec la carte MICROBIT
-- Programme de base avec les ressources internes
-- Capteurs extérieurs et carte MicroBit
+- [Les outils logiciels pour travailler avec la carte MICROBIT](#Les-outils-logiciels-pour-travailler-avec-la-carte-MICROBIT)
+- [Programme de base avec les ressources internes](Programmes-de-base-avec-les-ressources-internes)
+- [Capteurs externes et carte MicroBit](Capteurs-externes-et-carte-MicroBit)
 
 Présentation de la carte MICROBIT
 ----------------------------------
@@ -14,7 +14,7 @@ L'ensemble des ressources matérielles disponibles sur la carte BBC Micro:Bit
 
 ![Carte_microbit,40%](Hardware/microbit-overview-1-5.png)
 
-Comparaison des cartes de développement ARDUINO  et MICROBIT
+Comparaison des cartes de développement ARDUINO et MICROBIT
 ------------------------------------------------------------
 
 | |ARDUINO UNO |BBC:MICROBIT |
@@ -57,31 +57,32 @@ Avec Mu, on peut télécharger sur la carte Microbit.
 On peut travailler en direct avec le mode REPL   \
 REPL (session interactive en ligne de commande).  \
 On peut télécharger des fichiers sur Microbit avec "Fichiers"
-
 2. Le logiciel Jupyter Notebook permet aussi de travailler directement avec la carte MicroBit  \
 Il faut installer Jupyter Notebook ou Anaconda puis installer **ubit_kernel** :
  * pip install ubit_kernel
  * python3 -m ubit_kernel.install  
 [https://github.com/takluyver/ubit_kernel](https://github.com/takluyver/ubit_kernel)
+3. Sous linux, on peut travailler avec un émulateur de terminal pour liaison série comme screen ou GtkTerm
+[https://github.com/Jeija/gtkterm](https://github.com/Jeija/gtkterm)  
+ou dans un terminal : screen /dev/ttyACM0 115200
 
 ### Les outils en ligne
 1. Programmer en python la carte Microbit [https://python.microbit.org/v/2](https://python.microbit.org/v/2)
 2. Vittascience : [https://fr.vittascience.com/microbit/?mode=mixed&console=bottom](https://fr.vittascience.com/microbit/?mode=mixed&console=bottom)  
-On peut travailler avec des blocs ou en python.  \
-Ce logiciel permet de télécharger, mais aussi de simuler.  \
+On peut travailler avec des blocs ou en python.  
+Ce logiciel permet de télécharger, mais aussi de **simuler**  
 Si on veut travailler avec la liaison série, on prend le navigateur Chrome.
 3. Edublocks  [https://app.edublocks.org/](https://app.edublocks.org/)  
 Permet de travailler avec des blocs ou en Python
 4. Un simulateur python :  [https://create.withcode.uk/](https://create.withcode.uk/)
-5. Sous linux, on peut travailler avec une liaison série comme GtkTerm
-[https://github.com/Jeija/gtkterm](https://github.com/Jeija/gtkterm)
+
 
 Programmes de base avec les ressources internes
 --------------------------------------------
 
 [Programmation de base de la carte Microbit](Microbit_interne.md)
 
-Capteurs extérieurs et carte MicroBit
--------------------------------------
+Capteurs externes et carte MicroBit
+-----------------------------------
 
 [Utilisation de capteurs externes avec la carte Microbit ](Microbit_externe.md)
