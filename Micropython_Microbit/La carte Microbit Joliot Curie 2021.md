@@ -80,7 +80,7 @@ Permet de travailler avec des blocs ou en Python
 
 Voici 2 documents pour travailler avec des blocs et en Micropython qui ont été faits avec un collègue du lycée Joliot-Curie à Rennes pour des élèves de seconde en SNT.
 
-[bloc_python1](Vittascience/Bloc_Python_Microbit.pdf)
+[bloc_python1]("Vittascience/Bloc_Python_Microbit.pdf)
 
 [bloc_python2](Vittascience/Bloc_Python_Microbit2.pdf)
 
