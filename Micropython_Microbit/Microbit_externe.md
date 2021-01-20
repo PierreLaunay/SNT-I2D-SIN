@@ -19,7 +19,7 @@ Cette carte est à réserver aux enseignants et aux élèves qui font attention.
 
 Les capteurs externes
 ----------------------
-
+- [Afficheur LCD I2C](#Afficheur-LCD-I2C-Grove)
 - [Capteur de luminosité (entrée analogique)](#Capteur-de-luminosité-GA1A1S202WP-entrée-analogique)
 - [Capteur de température et humidité DHT 11 Grove.](#Capteur-de-température-et-humidité-DHT-11-Grove)
 - [Horloge temps réel DS3231 RTC (bus I2C)](#Horloge-temps-réel-DS3231-RTC-bus-I2C)
@@ -27,9 +27,27 @@ Les capteurs externes
 - [Programmes de visualisation de données pour les particules fines en python.](#On-peut-aussi-afficher-la-valeur-avec-ce-programme-PMSensor_pyplotipynb-sous-Jupyter-Notebook)
 - [Récepteur GPS (UART liaison série)](#Récepteur-GPS-UART-liaison-série)
 
+Afficheur LCD I2C Grove
+-----------------------
+
+**Attention** tous les afficheurs ne fonctionnent pas sous 3.3V, l'afficheur LCD_I2C RGB Grove ne fonctionne pas sous 3.3V par contre l'afficheur LCD_I2C Grove (Black on Yellow) fonctionne en 3.
+
+![lcd](Images/LCD_I2C_BoY.jpeg)
+
+Voici un exemple très simple avec Vittascience :
+
+![afficheur température](Images/lcd_temp.png)
+
+L'afficheur affiche la température du processeur de la carte Micro:bit.
+
+On pourra améliorer l'affichage en précisant sur la ligne 1 un texte et la ligne 2 la température ainsi que °C
+
+Évidemment, on pourra afficher d'autres choses...
 
 Capteur de luminosité GA1A1S202WP (entrée analogique)
 -----------------------------------------------------
+
+![Capteur](Images/MFG_1384.png)
 
 Le capteur [GA1A1S202WP](https://cdn-shop.adafruit.com/datasheets/GA1A1S202WP_Spec.pdf)
 
@@ -44,6 +62,8 @@ print(lux)
 
 Capteur de température et humidité DHT 11 Grove
 -----------------------------------------------
+
+![dht11](Images/dht11.png)
 
 Voici le programme principal du DHT11
 
@@ -63,6 +83,8 @@ Il faut une bibliothèque spécifique la classe DHT11 à télécharger depuis gi
 
 Horloge temps réel DS3231 RTC (bus I2C)
 ---------------------------------------
+
+![DS3231](Images/DS3231.png)
 
 Cette Horloge temps réel permet de la mettre à l'heure et ensuite de lire la date et l'heure.
 On peut aussi mettre 2 alarmes mais elles ne sont pas gérées dans le code ci-dessous.
@@ -120,8 +142,12 @@ if __name__ == '__main__':
 ```
 Les sources : [http://www.multiwingspan.co.uk/micro.php?page=rtc](http://www.multiwingspan.co.uk/micro.php?page=rtc)
 
+Il existe aussi une [bibliothèque sur github](https://github.com/shaoziyang/microbit-lib/blob/master/misc/DS3231/DS3231.py)
+
 Capteur de particules fines SDS011 (UART liaison série)
 -------------------------------------------------------
+
+![SDS011](Images/SDS011.jpeg)
 
 Ce capteur fonctionne avec la liaison série.
 
@@ -158,6 +184,8 @@ Voici [ce programme](Jupyter/PMSensor_pyplot/PMSensor_pyplot.md)
 
 Récepteur GPS (UART liaison série)
 ----------------------------------
+
+Capteur GY-NE06MV2 ![GPS](Images/gps.png)
 
 Le principe de fonctionnement reste identique aux capteur de particules, la liaison série permet de lire l'information GPS du capteur et de l'afficher sur l'écran du PC.
 
