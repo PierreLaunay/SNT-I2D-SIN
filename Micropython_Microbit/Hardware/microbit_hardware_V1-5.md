@@ -12,8 +12,7 @@ Overview
 -   [Overview](#overview)
 -   [Getting Started With the micro:bit
     Hardware](#getting-started-with-the-microbit-hardware)
--   [Hardware
-    Description](#hardware-description)
+-   [Hardware Description](#hardware-description)
     -   [nRF51 Application
         Processor](#nrf51-application-processor)
     -   [Bluetooth Wireless
@@ -63,6 +62,8 @@ micro:bit are:
 Hardware Description
 --------------------
 
+[comment]: #![Description](v2-block.svg)
+
 ### nRF51 Application Processor
 
 The nRF51 application processor is where user programs run. A single,
@@ -72,15 +73,15 @@ accessible GPIO pins are provided by this processor. There is an
 on-board 2.4GHz radio engine used to provide Bluetooth capabilities via
 an off-chip aerial.
 
-  item           details
-  -------------- ----------------------------------------------------------------------------------------------------------
-  Model          [Nordic nRF51822-QFAA-R rev 3](https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF51822)
-  Core variant   [Arm Cortex-M0 32 bit processor](https://www.arm.com/products/processors/cortex-m/cortex-m0.php)
-  Flash ROM      256KB
-  RAM            16KB
-  Speed          16MHz
-  Debug          SWD, jlink/OB
-  More Info      [Software](https://tech.microbit.org/software), [NRF51 datasheet](http://infocenter.nordicsemi.com/pdf/nRF51822_PS_v3.1.pdf)
+  |item          | details |
+  |--|--|
+  Model         | [Nordic nRF51822-QFAA-R rev 3](https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF51822)
+  Core variant  | [Arm Cortex-M0 32 bit processor](https://www.arm.com/products/processors/cortex-m/cortex-m0.php)
+  Flash ROM     | 256KB
+  RAM           | 16KB
+  Speed        |  16MHz
+  Debug         | SWD, jlink/OB
+  More Info     | [Software](https://tech.microbit.org/software), [NRF51 datasheet](http://infocenter.nordicsemi.com/pdf/nRF51822_PS_v3.1.pdf)
 
 ### Bluetooth Wireless Communication
 
@@ -89,17 +90,19 @@ the Nordic S110 SoftDevice, which provides a fully qualified Bluetooth
 low energy stack. This allows the micro:bit to communicate with a wide
 range of Bluetooth devices, including smartphones and tablets.
 
-  item                   details
-  ---------------------- -------------------------------------------------------------------------------------------------------
-  Stack                  Bluetooth 4.1 with Bluetooth low energy
-  Band                   2.4GHz ISM (Industrial, Scientific and Medical) 2.4GHz..2.41GHz
-  Channels               50 2MHz channels, only 40 used (0 to 39), 3 advertising channels (37,38,39)
-  Sensitivity            -93dBm in Bluetooth low energy mode
-  Tx Power               -20dBM to 4dBm in 4 dB steps
-  Role                   [GAP Peripheral](http://bluetooth-developer.blogspot.co.uk/2016/07/microbit-and-bluetooth-roles.html)
-  Congestion avoidance   Adaptive Frequency Hopping
-  Profiles               [BBC micro:bit profile](https://lancaster-university.github.io/microbit-docs/ble/profile/)
-  More Info              [Bluetooth](https://tech.microbit.org/bluetooth)
+  |item                 |  details|
+  |--|--|
+  Stack                 | Bluetooth 4.1 with Bluetooth low energy
+  Band                  |  2.4GHz ISM (Industrial, Scientific and Medical) 2.4GHz..2.41GHz
+  Channels             |   50 2MHz channels, only 40 used (0 to 39), 3 advertising channels (37,38,39)
+  Sensitivity          |   -93dBm in Bluetooth low energy mode
+  Tx Power             |   -20dBM to 4dBm in 4 dB steps
+  Role                 |   [GAP Peripheral](http://bluetooth-developer.blogspot.co.uk/2016/07/microbit-and-bluetooth-roles.html)
+  Congestion avoidance |  Adaptive Frequency Hopping
+  Profiles              | [BBC micro:bit profile](https://lancaster-university.github.io/microbit-docs/ble/profile/)
+  More Info            |  [Bluetooth](https://tech.microbit.org/bluetooth)
+
+  **En Micropython** Le bluetooth n'est pas utilisable, mémoire insuffisante.
 
 ### Low Level Radio Communications
 
@@ -113,17 +116,19 @@ this Gazell protocol. Additionally, the micro:bit runtime software adds
 a 'group code' to each data payload, allowing for simple user managed
 device addressing and filtering to take place.
 
-  item           details
-  -------------- ------------------------------------------------------------------------------------
-  Protocol       [Micro:bit Radio](https://lancaster-university.github.io/microbit-docs/ubit/radio)
-  Freq band      2.4GHz
-  Channel rate   1Mbps or 2Mbps
-  Encryption     None
-  Channels       101 (0..100)
-  Group codes    255
-  Tx power       Eight user configurable settings from 0(-30dbm) to 7 (+4dbm)
-  Payload size   32 (standard) 255 (if reconfigured)
-  More Info      [Micro:bit Radio](https://lancaster-university.github.io/microbit-docs/ubit/radio)
+|item       |    details|
+|--|--|
+  Protocol     |  [Micro:bit Radio](https://lancaster-university.github.io/microbit-docs/ubit/radio)
+  Freq band    |  2.4GHz
+  Channel rate  | 1Mbps or 2Mbps
+  Encryption    | None
+  Channels       | 101 (0..100)
+  Group codes    | 255
+  Tx power       | Eight user configurable settings from 0(-30dbm) to 7 (+4dbm)
+  Payload size   |32 (standard) 255 (if reconfigured)
+  More Info      | [Micro:bit Radio](https://lancaster-university.github.io/microbit-docs/ubit/radio)
+
+  **IMPORTANT** Il faut choisir entre Radio et Bluetooth et on ne peut pas basculer de l'un à l'autre, il faut le reconfigurer.
 
 ### Buttons
 
@@ -134,18 +139,41 @@ system reset purposes. This means that the application will reset
 regardless of if it is powered from USB or from battery.
 
 Front buttons A and B can be programmed in the user application for any
-purpose. A and B are debounced by software, which also includes short
+purpose. **A and B are debounced by software**, which also includes short
 press, long press, and 'both A+B' press detection. Buttons operate in a
 typical inverted electrical mode, where a pull-up resistor ensures a
 logical '1' when the button is released, and a logical '0' when the
 button is pressed. Both A and B buttons are connected to GPIO pins that
 are also accessible on the micro:bit edge connector.
 
-  item       details
-  ---------- -------------------------------------------------
-  Type       2 tactile user buttons, 1 tactile system button
-  Debounce   (A & B) software debounced, 54ms period
-  Pullup     (A & B) external 4K7, (System) 10K
+ | item  |     details |
+ |--|--|
+  |Type      | 2 tactile user buttons, 1 tactile system button
+  **Debounce  | (A & B) software debounced, 54ms period**
+  Pullup    | (A & B) external 4K7, (System) 10K
+
+##### Pull-Up
+![Pull up](pull_up.svg)
+
+La résistance de pull-up ou résistance de tirage vers le haut est une résistance qui sert à polariser l'entrée du micro:bit quand le bouton poussoir est relâché.
+
+Au repos, BP relâché : l'entrée est à VCC (3.3V pour le micro:bit).
+Au travail, BP appuyé : l'entrée est à 0 V
+
+Debounce : antirebond pour les interrupteurs.
+
+![Rebond](Rebond_BP.svg)
+
+![Anti_Rebond](anti_rebond.svg)
+
+#### Résistance de Pull_Down
+
+Nous venons de voir que les BP sont cablés avec une résistance de pull-up mais certaines entrées de la carte Microbit possèdent aussi un pull-down, lire la documentation [edge connector](edgeconnector.md)
+
+Voici le schéma :
+![Pull down](pull_down.svg)
+
+Ces pull-up ou pull-down internes permettent de brancher certains capteurs qui sont à collecteur ouvert ou drain ouvert par exemple.
 
 ### Display
 
@@ -157,16 +185,16 @@ ambient light, by repeatedly switching some of the LED drive pins into
 inputs and sampling the voltage decay time, which is roughly
 proportional to ambient light levels.
 
-  item                   details
-  ---------------------- -------------------------------------------------
-  Type                   miniature surface mount red LED
-  Physical structure     5x5 matrix
-  Electrical structure   3x9
-  Intensity control      10 steps
-  Intensity range        TBC
-  Sensing                ambient light estimation via software algorithm
-  Sensing Range          TBC, 10 levels from off to full on
-  Colour sensitivity     red centric, red is 700nm
+  | item                |   details |
+ |--|--|
+  Type                  | miniature surface mount red LED
+  Physical structure    | 5x5 matrix
+  Electrical structure  | 3x9
+  Intensity control     | 10 steps
+  Intensity range       | TBC
+  Sensing               | ambient light estimation via software algorithm
+  Sensing Range         | TBC, 10 levels from off to full on
+  Colour sensitivity    | red centric, red is 700nm
 
 ### Motion sensor
 
@@ -188,13 +216,13 @@ all V1.5 boards have been manufactured with the LSM303AGR. If we were to
 move to the NXP part, a round of testing would be required and we would
 notify the [DAL and Devices mailing list.](http://eepurl.com/dyRx-v)
 
-  item                details
-  ------------------- -----------------------------------------------------------------------
-  Model               [LSM303GR](https://www.st.com/en/mems-and-sensors/lsm303agr.html)
-  Features            3 magnetic field and 3 acceleration axes , 2/4/8/16g ranges
-  Resolution          8/10/12 bits
-  On board gestures   'freefall'
-  Other gestures      Other gestures are implemented by software algorithms in the runtime.
+  | item           |     details |
+ |--|--|
+  Model            |   [LSM303GR](https://www.st.com/en/mems-and-sensors/lsm303agr.html)
+  Features         |   3 magnetic field and 3 acceleration axes , 2/4/8/16g ranges
+  Resolution       |   8/10/12 bits
+  On board gestures |  'freefall'
+  Other gestures   |   Other gestures are implemented by software algorithms in the runtime.
 
 ### Temperature Sensing
 
@@ -202,13 +230,13 @@ The nRF51 application processor has an on-board core temperature sensor.
 This is exposed via the standard runtime software, and provides an
 estimate of ambient temperature.
 
-  item            details
-  --------------- -------------------------------------------------------------------------------------------
-  Type            on-core nRF51
-  Sensing range   -25C .. 75C
-  Resolution      0.25C steps
-  Accuracy        +/-4C (uncalibrated)
-  More Info       [DAL Thermometer](https://lancaster-university.github.io/microbit-docs/ubit/thermometer/)
+  | item          |  details |
+  |--|--|
+  Type          |  on-core nRF51
+  Sensing range  | -25C .. 75C
+  Resolution     | 0.25C steps
+  Accuracy       | +/-4C (uncalibrated)
+  More Info      | [DAL Thermometer](https://lancaster-university.github.io/microbit-docs/ubit/thermometer/)
 
 ### General Purpose Input/Output Pins
 
@@ -220,24 +248,24 @@ off. Note: the nRF51 datasheet states that GPIO pins may be in std-drive
 (0.5mA) and high-drive (5mA) mode, with a maximum of 3 pins in
 high-drive mode at any one time.
 
-  item             details
-  ---------------- ------------------------------------------------------------------------------------
-  Rings            3 large IO rings and two large power rings, 4mm plug and crocodile clip compatible
-  GPIO features    19 assignable GPIO pins
-                   2 are assigned to the on-board I2C interface
-                   6 are used for display or light sensing feature
-                   2 are used for on-board button detection
-                   1 is reserved for an accessibility interface
-                   19 may be assigned as digital input or digital output
-                   19 may be assigned for up to 3 simultaneous PWM channels
-                   19 may be assigned for 1 serial transmit and 1 serial receive channel
-                   6 may be assigned as analog input pins
-                   3 may be assigned to an optional SPI communications interface
-                   3 may be assigned for up to 3 simultaneous touch sensing inputs
-  ADC resolution   10 bit (0..1023)
-  Edge Connector   [Edge connector](https://tech.microbit.org/hardware/edgeconnector/)
-  Pitch            1.27mm, 80 way double sided.
-  Pads             5 pads, with 4mm holes
+  | item        |     details |
+  |----------------|-----------|
+  Rings            |3 large IO rings and two large power rings, 4mm plug and crocodile clip compatible
+  GPIO features   | 19 assignable GPIO pins
+   |              | 2 are assigned to the on-board I2C interface
+   |              | 6 are used for display or light sensing feature
+   |              | 2 are used for on-board button detection
+   |              | 1 is reserved for an accessibility interface
+   |              | 19 may be assigned as digital input or digital output
+   |              | 19 may be assigned for up to 3 simultaneous PWM channels
+   |              | 19 may be assigned for 1 serial transmit and 1 serial receive channel
+   |              | 6 may be assigned as analog input pins
+   |              | 3 may be assigned to an optional SPI communications interface
+   |              | 3 may be assigned for up to 3 simultaneous touch sensing inputs
+  ADC resolution  | 10 bit (0..1023)
+  Edge Connector  | [Edge connector](https://tech.microbit.org/hardware/edgeconnector/)
+  Pitch           | 1.27mm, 80 way double sided.
+  Pads            | 5 pads, with 4mm holes
 
 ### Power Supply
 
@@ -247,15 +275,15 @@ plugged into the top connector. It is also possible (with care) to power
 the micro:bit from the 3V pad at the bottom. The 3V pad at the bottom
 can be used to supply a small amount of power external circuits.
 
-  item                                      details
-  ----------------------------------------- --------------------------------
-  Operating range                           1.8V .. 3.6V
-  USB current                               120mA max
-  On-board Peripherals budget               30mA
-  Battery connector                         JST X2B-PH-SM4-TB
-  Battery current                           TBC
-  Max current provided via edge connector   90mA
-  More Info                                 [Power supply](https://tech.microbit.org/hardware/powersupply)
+  |item                            |          details|
+  |--|--|
+  Operating range                  |          1.8V .. 3.6V
+  USB current                      |         120mA max
+  On-board Peripherals budget      |         30mA
+  Battery connector                |         JST X2B-PH-SM4-TB
+  Battery current                  |         TBC
+  Max current provided via edge connector |  90mA
+  More Info                         |        [Power supply](https://tech.microbit.org/hardware/powersupply)
 
 ### Interface
 
@@ -263,15 +291,15 @@ The interface chip handles the USB connection, and is used for flashing
 new code to the micro:bit, sending and receiving serial data back and
 forth to your main computer.
 
-  item                 details
-  -------------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Model                [Freescale MKL26Z128VFM4](http://www.nxp.com/webapp/search.partparamdetail.framework?PART_NUMBER=MKL26Z128VFM4)
-  Core variant:        [Arm Cortex-M0+](https://www.arm.com/products/processors/cortex-m/cortex-m0plus.php)
-  Flash ROM            128KB
-  RAM                  16KB
-  Speed                [16Mhz (crystal)](https://github.com/Armmbed/DAPLink/blob/f499eb6ec4a847a2b78831fe1acc856fd8eb2f28/source/hic_hal/freescale/kl26z/MKL26Z4/system_MKL26Z4.c#L69) 48MHz (max)
-  Debug capabilities   SWD
-  More Info            [DAPLink](https://tech.microbit.org/software/daplink-interface/), [KL26 reference manual](https://www.nxp.com/docs/en/reference-manual/KL26P121M48SF4RM.pdf) [KL26Z datasheet](http://www.nxp.com/docs/pcn_attachments/16440_KL26P64M48SF5_Rev.4.pdf)
+  | item               |  details |
+  |--|--|
+  Model               | [Freescale MKL26Z128VFM4](http://www.nxp.com/webapp/search.partparamdetail.framework?PART_NUMBER=MKL26Z128VFM4)
+  Core variant:       | [Arm Cortex-M0+](https://www.arm.com/products/processors/cortex-m/cortex-m0plus.php)
+  Flash ROM           | 128KB
+  RAM                 | 16KB
+  Speed               | [16Mhz (crystal)](https://github.com/Armmbed/DAPLink/blob/f499eb6ec4a847a2b78831fe1acc856fd8eb2f28/source/hic_hal/freescale/kl26z/MKL26Z4/system_MKL26Z4.c#L69) 48MHz (max)
+  Debug capabilities  | SWD
+  More Info           | [DAPLink](https://tech.microbit.org/software/daplink-interface/), [KL26 reference manual](https://www.nxp.com/docs/en/reference-manual/KL26P121M48SF4RM.pdf) [KL26Z datasheet](http://www.nxp.com/docs/pcn_attachments/16440_KL26P64M48SF5_Rev.4.pdf)
 
 ### USB Communications
 
@@ -283,14 +311,18 @@ streamed to and from the micro:bit application processor over USB to an
 external host computer, and supports the CMSIS-DAP protocol for host
 debugging of application programs.
 
-  item                    details
-  ----------------------- ----------------------------------------------------------------------------------------------------
-  Connector               USB micro, MOLEX_47346-0001
-  USB version             1.1 Full Speed device
-  Speed                   12Mbit/sec
-  USB classes supported   [Mass Storage Class (MSC)](https://en.wikipedia.org/wiki/USB_mass_storage_device_class)
-                          [Communications Device Class (CDC)](https://en.wikipedia.org/wiki/USB_communications_device_class)
-  More Info               [DAPLink](https://tech.microbit.org/software/daplink-interface/)
+   |item                 |   details |
+  |--|--|
+  | Connector     |          USB micro, MOLEX_47346-0001
+  USB version         |    1.1 Full Speed device
+  Speed               |    12Mbit/sec
+  USB classes supported |  [Mass Storage Class (MSC)](https://en.wikipedia.org/wiki/USB_mass_storage_device_class)
+       |               |   [Communications Device Class (CDC)](https://en.wikipedia.org/wiki/USB_communications_device_class)
+  More Info            |   [DAPLink](https://tech.microbit.org/software/daplink-interface/)
+
+  **En mode série, l'UART fonctionne à 115200 bauds par défaut**
+
+  *Sous linux le port est ttyACM0 comme une carte Arduino*
 
 ### Debugging
 
@@ -301,11 +333,11 @@ code can also be debugged via its integral SWD software debug interface,
 for example to load initial bootloader code into this processor at
 manufacturing time, or to recover a lost bootloader.
 
-  item        details
-  ----------- -----------------------------------------------------------------------------------------------------------------
-  Protocol    CMSIS-DAP
-  Options     JLink/OB (via different firmware)
-  More Info   [Mbed debugging micro:bit](https://docs.mbed.com/docs/mbed-os-handbook/en/latest/debugging/debugging_microbit/)
+  | item     |   details |
+  |----------| ---------|
+  Protocol   |  CMSIS-DAP
+  Options    | JLink/OB (via different firmware)
+  More Info  | [Mbed debugging micro:bit](https://docs.mbed.com/docs/mbed-os-handbook/en/latest/debugging/debugging_microbit/)
 
 ### Mechanical
 
@@ -316,10 +348,10 @@ basis for generating really nice marketing and project images of the
 micro:bit, but also as a basis for accurate manufacture of attachments
 e.g. via 3D printing.
 
-  item         details
-  ------------ ---------------
-  Dimensions   5cm(w) 4cm(h)
-  Weight       5g
+  item       |  details
+  ------------| ---------------
+  Dimensions |  5cm(w) 4cm(h)
+  Weight    |   5g
 
 Further information
 -------------------
@@ -335,6 +367,3 @@ Further information
 
 -   [Fritzing diagram, contributed by Kok Ho
     Huen](https://tech.microbit.org/docs/hardware/assets/Microbit.fzpz.zip)
-:::
-:::
-:::

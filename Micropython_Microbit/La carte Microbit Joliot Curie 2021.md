@@ -76,6 +76,13 @@ Si on veut travailler avec la liaison série, on prend le navigateur Chrome.
 Permet de travailler avec des blocs ou en Python
 4. Un simulateur python :  [https://create.withcode.uk/](https://create.withcode.uk/)
 
+### Vittascience
+
+Voici 2 documents pour travailler avec des blocs et en Micropython qui ont été faits avec un collègue du lycée Joliot-Curie à Rennes pour des élèves de seconde en SNT.
+
+![bloc_python1][Vittascience/Bloc_Python_Microbit.pdf]
+
+![bloc_python2][Vittascience/Bloc_Python_Microbit2.pdf]
 
 Programmes de base avec les ressources internes
 --------------------------------------------
