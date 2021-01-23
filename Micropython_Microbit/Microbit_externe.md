@@ -27,6 +27,7 @@ Les capteurs externes
 - [Capteur de particules fines SDS011 (UART liaison série)](#Capteur-de-particules-fines-SDS011-UART-liaison-série)
 - [Programmes de visualisation de données pour les particules fines en python.](#On-peut-aussi-afficher-la-valeur-avec-ce-programme-PMSensor_pyplotipynb-sous-Jupyter-Notebook)
 - [Récepteur GPS (UART liaison série)](#Récepteur-GPS-UART-liaison-série)
+- [Sortie Transistor MOSFET](Sortie-transistor-mosfet)
 
 Afficheur LCD I2C Grove
 -----------------------
@@ -72,6 +73,8 @@ Regardons la documentation en micropython de la carte microbit sur [les entrées
 *The pull mode for a pin is automatically configured when the pin changes to an input mode. Input modes are when you call read_analog / read_digital / is_touched. The default pull mode for these is, respectively, NO_PULL, PULL_DOWN, PULL_UP. Calling set_pull will configure the pin to be in read_digital mode with the given pull mode.*
 
 Concrètement, la fonction read_digital configure l'entrée en PULL_DOWN (résistance de tirage vers le bas) pour de [plus amples explications](Hardware/microbit_hardware_V1-5.md)
+
+Cette résistance de Pull-Down affaiblit le signal du récepteur Infrarouge.
 
 Nous allons ne pas mettre de résistance de tirage, ni vers le bas, ni vers le haut, avec l'instruction set_pull(pin14.NO_PULL) :
 
@@ -285,6 +288,42 @@ $GPRMC,053740.000,A,2503.6319,N,12136.0099,E,2.69,79.65,100106,,,A*53
 Afficher l'heure UTC et la date ainsi que la latitude et la longitude.
 
 Pour faire une liste des termes séparés par une virgule en python, on pourra utiliser la fonction split(',')
+
+Sortie Transistor MOSFET
+=========================
+
+On va utiliser un module transistor très simple pour allumer un bandeau de 12 leds
+
+Voici le schéma : ![Sortie_Lampe](Images/Sortie_Lampe.png)
+
+Il faut une alimentation extérieure de 9 V
+
+On peut piloter la lampe de 2 façons :
+
+ 1. Sortie numérique tout ou rien fonction write_digital(valeur) # valeur = 0 ou 1
+ 2. Sortie MLI/PWM pseudo analogique write_analog(valeur) # 0 < valeur <1024
+
+La PWM fonctionne sur 12 bits (1024 valeurs) de 0 à 1023, pas de 0.1%  
+
+La fréquence de la période peut être réglé par 2 fonctions :
+
+ - set_analog_period(period) : Set the period of the PWM signal being output to period in milliseconds. The minimum valid value is 1ms.
+
+- set_analog_period_microseconds(period) : Set the period of the PWM signal being output to period in microseconds. The minimum valid value is 256µs.
+
+
+Ce programme permet de faire varier la luminosité de la lampe avec une sortie MLI/PWM :
+
+```python
+for i in range(20):
+  pin16.write_analog(i*50)
+  sleep(1000)
+```
+
+### Commande Moteur  
+
+On peut aussi piloter des moteurs mais attention de nombreuses cartes fonctionnent en 5V en entrée.  
+Il faudra adapter les signaux de la carte Micro:bit qui fonctionne en 3.3V.
 
 Conclusion
 ===========
