@@ -20,6 +20,7 @@ Cette carte est à réserver aux enseignants et aux élèves qui font attention.
 Les capteurs externes
 ----------------------
 - [Afficheur LCD I2C](#Afficheur-LCD-I2C-Grove)
+- [Barrière Infrarouge](#Barrière-Infrarouge)
 - [Capteur de luminosité (entrée analogique)](#Capteur-de-luminosité-GA1A1S202WP-entrée-analogique)
 - [Capteur de température et humidité DHT 11 Grove.](#Capteur-de-température-et-humidité-DHT-11-Grove)
 - [Horloge temps réel DS3231 RTC (bus I2C)](#Horloge-temps-réel-DS3231-RTC-bus-I2C)
@@ -43,6 +44,62 @@ L'afficheur affiche la température du processeur de la carte Micro:bit.
 On pourra améliorer l'affichage en précisant sur la ligne 1 un texte et la ligne 2 la température ainsi que °C
 
 Évidemment, on pourra afficher d'autres choses...
+
+Barrière Infrarouge
+-------------------
+![Infrarouge](Images/Infrared_sensors.png)
+
+La [documentation](https://www.seeedstudio.com/300mm-Infrared-shooting-sensor-p-2308.html) nous dit qu'il fonctionne en 5V mais il peut fonctionner en 3.3V
+
+ - Il y a un émetteur avec 2 fils pour l'alimentation.
+ - Un récepteur avec 3 fils que j'ai branché avec un adaptateur sur P0/P14
+
+ Pour lire une entrée en micropython nous avons la fonction read_digital() qui doit être associée à une broche (pin)
+
+ Exemple :
+
+```python
+from microbit import pin14
+print(pin14.read_digital())
+```
+
+Cela ne fonctionne pas !
+
+**Pourquoi ?**
+
+Regardons la documentation en micropython de la carte microbit sur [les entrées sorties](https://microbit-micropython.readthedocs.io/fr/latest/pin.html)
+
+*The pull mode for a pin is automatically configured when the pin changes to an input mode. Input modes are when you call read_analog / read_digital / is_touched. The default pull mode for these is, respectively, NO_PULL, PULL_DOWN, PULL_UP. Calling set_pull will configure the pin to be in read_digital mode with the given pull mode.*
+
+Concrètement, la fonction read_digital configure l'entrée en PULL_DOWN (résistance de tirage vers le bas) pour de [plus amples explications](Hardware/microbit_hardware_V1-5.md)
+
+Nous allons ne pas mettre de résistance de tirage, ni vers le bas, ni vers le haut, avec l'instruction set_pull(pin14.NO_PULL) :
+
+```python
+pin14.set_pull(pin14.NO_PULL)
+print(pin14.read_digital())
+```
+
+Cette fois-ci, la barrière infrarouge fonctionne !
+
+Pour information, l'instruction is_touched() ne fonctionne pas pour la broche 14, mais elle fonctionne sur la broche 0.
+
+- L'instruction  is_touched() répond True (Vrai) si le niveau est "0"
+- L'instruction  is_touched() répond False (Faux) si le niveau est "1"
+
+Cela est logique puisqu'il utilise un Pull-Up mais pour notre barrière :
+
+- Un obstacle correspondra à Vrai
+- Une bonne réception correspond à Faux (pas d'obstacle)
+
+**Attention** pour les entrées, il faut faire attention à la configuration.
+
+### Piloter l'émetteur IR
+
+Enfin on peut aussi piloter l'émetteur infrarouge avec la fonction write_digital(value)
+
+- value = 0, émetteur éteint,
+- value = 1, émetteur allumé.
 
 Capteur de luminosité GA1A1S202WP (entrée analogique)
 -----------------------------------------------------
@@ -228,3 +285,16 @@ $GPRMC,053740.000,A,2503.6319,N,12136.0099,E,2.69,79.65,100106,,,A*53
 Afficher l'heure UTC et la date ainsi que la latitude et la longitude.
 
 Pour faire une liste des termes séparés par une virgule en python, on pourra utiliser la fonction split(',')
+
+Conclusion
+===========
+
+Limite de la carte Microbit, cette carte me semble largement suffisante en seconde et première pour découvrir la programmation.
+
+Par contre, si on veut mettre certains capteurs et l'afficheur LCD, la carte est insuffisante, mémoire insuffisante.
+
+Pour les terminales, on pourra utiliser d'autres cartes plus puissantes qui fonctionnent avec Micropython.
+
+Cartes Pyboard, ESP8266, ESP32 ...
+
+À voir la [carte Microbit V2](https://microbit.org/new-microbit/)
