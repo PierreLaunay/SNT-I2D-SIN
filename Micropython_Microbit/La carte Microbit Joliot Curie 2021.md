@@ -12,7 +12,7 @@ Présentation de la carte MICROBIT
 
 L'ensemble des ressources matérielles disponibles sur la carte BBC Micro:Bit
 
-![Carte_microbit,40%](Hardware/microbit-overview-1-5.png)
+![Carte_microbit,40%](Images/microbit-overview-1-5.png)
 
 Comparaison des cartes de développement ARDUINO et MICROBIT
 ------------------------------------------------------------

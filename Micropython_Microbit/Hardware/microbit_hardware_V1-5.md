@@ -252,16 +252,16 @@ high-drive mode at any one time.
   |----------------|-----------|
   Rings            |3 large IO rings and two large power rings, 4mm plug and crocodile clip compatible
   GPIO features   | 19 assignable GPIO pins
-   |              | 2 are assigned to the on-board I2C interface
-   |              | 6 are used for display or light sensing feature
-   |              | 2 are used for on-board button detection
-   |              | 1 is reserved for an accessibility interface
-   |              | 19 may be assigned as digital input or digital output
-   |              | 19 may be assigned for up to 3 simultaneous PWM channels
-   |              | 19 may be assigned for 1 serial transmit and 1 serial receive channel
-   |              | 6 may be assigned as analog input pins
-   |              | 3 may be assigned to an optional SPI communications interface
-   |              | 3 may be assigned for up to 3 simultaneous touch sensing inputs
+   | - | 2 are assigned to the on-board I2C interface
+   |      -        | 6 are used for display or light sensing feature
+   |     -         | 2 are used for on-board button detection
+   |      -        | 1 is reserved for an accessibility interface
+   |      -        | 19 may be assigned as digital input or digital output
+   |      -        | 19 may be assigned for up to 3 simultaneous PWM channels
+   |      -        | 19 may be assigned for 1 serial transmit and 1 serial receive channel
+   |     -         | 6 may be assigned as analog input pins
+   |     -         | 3 may be assigned to an optional SPI communications interface
+   |     -         | 3 may be assigned for up to 3 simultaneous touch sensing inputs
   ADC resolution  | 10 bit (0..1023)
   Edge Connector  | [Edge connector](https://tech.microbit.org/hardware/edgeconnector/)
   Pitch           | 1.27mm, 80 way double sided.
@@ -297,7 +297,7 @@ forth to your main computer.
   Core variant:       | [Arm Cortex-M0+](https://www.arm.com/products/processors/cortex-m/cortex-m0plus.php)
   Flash ROM           | 128KB
   RAM                 | 16KB
-  Speed               | [16Mhz crystal](https://github.com/Armmbed/DAPLink/blob/f499eb6ec4a847a2b78831fe1acc856fd8eb2f28/source/hic_hal/freescale/kl26z/MKL26Z4/system_MKL26Z4.c#L69) 48MHz (max)
+  Speed               | [16Mhz crystal](https://github.com/Armmbed/DAPLink/blob/f499eb6ec4a847a2b78831fe1acc856fd8eb2f28/source/hic_hal/freescale/kl26z/MKL26Z4/system_MKL26Z4.c#L69) 48MHz max
   Debug capabilities  | SWD
   More Info           | [DAPLink](https://tech.microbit.org/software/daplink-interface/), [KL26 reference manual](https://www.nxp.com/docs/en/reference-manual/KL26P121M48SF4RM.pdf) [KL26Z datasheet](http://www.nxp.com/docs/pcn_attachments/16440_KL26P64M48SF5_Rev.4.pdf)
 
