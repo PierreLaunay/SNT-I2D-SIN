@@ -62,7 +62,7 @@ micro:bit are:
 Hardware Description
 --------------------
 
-[comment]: #![Description](v2-block.svg)
+[comment]: #![Description](../Images/v2-block.svg)
 
 ### nRF51 Application Processor
 
@@ -153,7 +153,7 @@ are also accessible on the micro:bit edge connector.
   Pullup    | (A & B) external 4K7, (System) 10K
 
 ##### Pull-Up
-![Pull up](pullup.svg)
+![Pull up](../Images/pullup.svg)
 
 La résistance de pull-up ou résistance de tirage vers le haut est une résistance qui sert à polariser l'entrée du micro:bit quand le bouton poussoir est relâché.
 
@@ -162,16 +162,16 @@ Au travail, BP appuyé : l'entrée est à 0 V
 
 Debounce : antirebond pour les interrupteurs.
 
-![Rebond](Rebond_BP.svg)
+![Rebond](../Images/Rebond_BP.svg)
 
-![Anti_Rebond](anti_rebond.svg)
+![Anti_Rebond](../Images/anti_rebond.svg)
 
 #### Résistance de Pull_Down
 
 Nous venons de voir que les BP sont cablés avec une résistance de pull-up mais certaines entrées de la carte Microbit possèdent aussi un pull-down, lire la documentation [edge connector](edgeconnector.md)
 
 Voici le schéma :
-![Pull down](pulldown.svg)
+![Pull down](../Images/pulldown.svg)
 
 Ces pull-up ou pull-down internes permettent de brancher certains capteurs qui sont à collecteur ouvert ou drain ouvert par exemple.
 
