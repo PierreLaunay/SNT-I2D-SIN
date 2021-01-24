@@ -1,4 +1,2 @@
-Faut revoir sa copie : https://github.com/PierreLaunay/SNT-I2D-SIN/blob/master/Micropython_Microbit/Hardware/microbit-overview-1-5.png in Micropython_Microbit/La carte Microbit Joliot Curie 2021.md
 Security Error for https://www.seeedstudio.com/300mm-Infrared-shooting-sensor-p-2308.html in Micropython_Microbit/Microbit_externe.md
 Security Error for https://www.kitronik.co.uk/pdf/bbc_microbit_mechanical_datasheet_V2.pdf in Micropython_Microbit/Hardware/edgeconnector.md
-Faut revoir sa copie : https://github.com/PierreLaunay/SNT-I2D-SIN/blob/master/Micropython_Microbit/Hardware/microbit_hardware_V1-5.mdhttps://github.com/Armmbed/DAPLink/blob/f499eb6ec4a847a2b78831fe1acc856fd8eb2f28/source/hic_hal/freescale/kl26z/MKL26Z4/system_MKL26Z4.c#L69 in Micropython_Microbit/Hardware/microbit_hardware_V1-5.md

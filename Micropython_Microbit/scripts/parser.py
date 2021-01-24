@@ -18,7 +18,7 @@ for path in paths:
     finally:
         results=links.findall(file)
         for result in results:
-            if intern.search(result):
+            if intern.match(result):
                 requested_links[path].append(base_url+path+result)
             elif urls.search(result):
                 requested_links[path].append(result)
@@ -29,7 +29,7 @@ logging = open("Micropython_Microbit/scripts/error_log.txt","w")
 for a,b in requested_links.items():
     for c in b:
         try:
-            webpage = requests.get(c)
+            webpage = requests.get(c, verify=False)
         except requests.exceptions.SSLError:
             logging.write(f"Security Error for {c} in {a}\n")
         except requests.exceptions.InvalidURL:
