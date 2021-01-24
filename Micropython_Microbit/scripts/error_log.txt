@@ -1,2 +1,0 @@
-Security Error for https://www.seeedstudio.com/300mm-Infrared-shooting-sensor-p-2308.html in Micropython_Microbit/Microbit_externe.md
-Security Error for https://www.kitronik.co.uk/pdf/bbc_microbit_mechanical_datasheet_V2.pdf in Micropython_Microbit/Hardware/edgeconnector.md

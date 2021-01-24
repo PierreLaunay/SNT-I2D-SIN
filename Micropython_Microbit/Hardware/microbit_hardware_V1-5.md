@@ -252,16 +252,16 @@ high-drive mode at any one time.
 |----------------|-----------|
 | Rings            |3 large IO rings and two large power rings, 4mm plug and crocodile clip compatible|
 | GPIO features   | 19 assignable GPIO pins|
-| - | 2 are assigned to the on-board I2C interface|
+|  | 2 are assigned to the on-board I2C interface|
 |             | 6 are used for display or light sensing feature|
 |              | 2 are used for on-board button detection|
-|      -        | 1 is reserved for an accessibility interface|
-|      -        | 19 may be assigned as digital input or digital output|
-|      -        | 19 may be assigned for up to 3 simultaneous PWM channels|
-|      -        | 19 may be assigned for 1 serial transmit and 1 serial receive channel|
-|     -         | 6 may be assigned as analog input pins|
-|     -         | 3 may be assigned to an optional SPI communications interface|
-|     -         | 3 may be assigned for up to 3 simultaneous touch sensing inputs|
+|              | 1 is reserved for an accessibility interface|
+|              | 19 may be assigned as digital input or digital output|
+|              | 19 may be assigned for up to 3 simultaneous PWM channels|
+|              | 19 may be assigned for 1 serial transmit and 1 serial receive channel|
+|              | 6 may be assigned as analog input pins|
+|              | 3 may be assigned to an optional SPI communications interface|
+|              | 3 may be assigned for up to 3 simultaneous touch sensing inputs|
 | ADC resolution  | 10 bit (0..1023)|
 | Edge Connector  | [Edge connector](https://tech.microbit.org/hardware/edgeconnector/)|
 | Pitch           | 1.27mm, 80 way double sided.|
