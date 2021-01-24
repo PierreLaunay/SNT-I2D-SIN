@@ -10,9 +10,9 @@ ref: hardware
 lang: en
 ---
 
-## Overview{:notoc}
+## Overview
 
-* TOC{:toc}
+* TOC
 
 The edge connector on the micro:bit is used to connect to external circuits and components.
 
@@ -30,7 +30,7 @@ Pin 9 is no longer jointly shared with the LED display, but Pin 8 and Pin 9 can 
 
 | V2   | V1
 | ---- | ----
-| ![edge connector V2](edge-connector-2.svg) | ![edge connector v1](edge_connector.svg)
+| ![edge connector V2](../Images/edge-connector-2.svg) | ![edge connector v1](../Images/edge_connector.svg)
 
 ### microbit.pinout.xyz
 

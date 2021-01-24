@@ -35,7 +35,7 @@ Overview
 -   [Further
     information](#further-information)
 
-![img](microbit-overview-1-5.png)
+![img](../Images/microbit-overview-1-5.png)
 
 Getting Started With the micro:bit Hardware
 -------------------------------------------

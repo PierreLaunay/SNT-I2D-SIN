@@ -1,0 +1,42 @@
+import re
+import glob
+from collections import defaultdict
+import requests
+
+paths = glob.glob('**/*.md',recursive=True)
+base_url = "https://github.com/PierreLaunay/SNT-I2D-SIN/blob/master/"
+#print(path)
+links = re.compile(r"\[.*?\]\((.*?)\)")
+intern = re.compile(r"#\S*")
+urls = re.compile(r"http")
+requested_links = defaultdict(list)
+for path in paths:
+    try:
+        file = open(path).read()
+    except:
+        print(path,"unable to open")
+    finally:
+        results=links.findall(file)
+        for result in results:
+            if intern.search(result):
+                requested_links[path].append(base_url+path+result)
+            elif urls.search(result):
+                requested_links[path].append(result)
+            else:
+                requested_links[path].append(base_url+"Micropython_Microbit/"+result)
+
+logging = open("error_log.txt","w")
+for a,b in requested_links.items():
+    for c in b:
+        try:
+            webpage = requests.get(c)
+        except requests.exceptions.SSLError:
+            logging.write(f"Security Error for {c} in {a}\n")
+        except requests.exceptions.InvalidURL:
+            logging.write(f"Invalid URL Error for {c} in {a}\n")
+        finally:
+            if 200 <= webpage.status_code <= 299:
+                print("Bravo !")
+            else:
+                logging.write(f"Faut revoir sa copie : {c} in {a}\n")
+logging.close()
