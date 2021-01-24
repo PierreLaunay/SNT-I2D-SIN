@@ -29,9 +29,13 @@ logging = open("Micropython_Microbit/scripts/error_log.txt","w")
 for a,b in requested_links.items():
     for c in b:
         try:
-            webpage = requests.get(c, verify=False)
+            webpage = requests.get(c)
         except requests.exceptions.SSLError:
-            logging.write(f"Security Error for {c} in {a}\n")
+            print(f"Security Error for {c} in {a}\n")
+            try:
+                webpage = requests.get(c, verify=False)
+            except Exception as e:
+                logging.write(f"Website not working correctly, see {e} for {c} in {a}\n")
         except requests.exceptions.InvalidURL:
             logging.write(f"Invalid URL Error for {c} in {a}\n")
         finally:
