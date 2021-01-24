@@ -157,7 +157,7 @@ This table shows various data about each of the pins on the micro:bit edge conne
 
 5. Functions in brackets should be used with caution, as other features of the device may become unstable, degraded or non operational, if their normal use is not disabled in the software first.
 
-6. The source file for [the pinout table](/docs/hardware/pinmap.csv) is held in CSV format. You can load this into a spreadsheet and sort and filter it in any way that makes sense to you. There is also a [zipped Python script](/docs/hardware/csv2md.zip) in this folder that you can download to re-generate the markdown table version of the pin map used on this page, from the .csv file.
+6. The source file for [the pinout table](https://tech.microbit.org/docs/hardware/pinmap.csv) is held in CSV format. You can load this into a spreadsheet and sort and filter it in any way that makes sense to you. There is also a [zipped Python script](https://tech.microbit.org/docs/hardware/csv2md.zip) in this folder that you can download to re-generate the markdown table version of the pin map used on this page, from the .csv file.
 
 7. The pin marked 'ACCESSIBILITY' is used to enable/disable an on-board accessibility mode, and should not be used for anything else (even though it can be used as a GPIO for testing). Future versions of the official micro:bit editors may remove the ability to write to this pin.
 
@@ -189,7 +189,7 @@ The main reason you might choose to use these pins for other purposes would be i
 
 ## Power Supply Capabilities
 
-There is a dedicated page on [power supply capabilities and parameters](/hardware/powersupply), which better defines how you can use the GND and 3V rings
+There is a dedicated page on [power supply capabilities and parameters](https://tech.microbit.org/hardware/powersupply), which better defines how you can use the GND and 3V rings
 
 ## GPIO Capabilities
 
@@ -269,7 +269,7 @@ Can you help to find or design a better connection solution to the micro:bit edg
 
 ## Further information
 
-- [micro:bit schematics](../schematic)
+- [micro:bit schematics](https://tech.microbit.org/hardware/schematic)
 
 - [micro:bit CAD resources (Kitronik)](https://www.kitronik.co.uk/blog/bbc-microbit-cad-resources/)
 

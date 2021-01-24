@@ -1,5 +1,5 @@
 import re
-import glob
+import os, glob
 from collections import defaultdict
 import requests
 
@@ -23,9 +23,9 @@ for path in paths:
             elif urls.search(result):
                 requested_links[path].append(result)
             else:
-                requested_links[path].append(base_url+"Micropython_Microbit/"+result)
+                requested_links[path].append(base_url+os.path.join(os.path.dirname(path),result))
 
-logging = open("error_log.txt","w")
+logging = open("Micropython_Microbit/scripts/error_log.txt","w")
 for a,b in requested_links.items():
     for c in b:
         try:
