@@ -24,10 +24,12 @@ Les capteurs externes
 - [Capteur de luminosité (entrée analogique)](#Capteur-de-luminosité-GA1A1S202WP-entrée-analogique)
 - [Capteur de température et humidité DHT 11 Grove.](#Capteur-de-température-et-humidité-DHT-11-Grove)
 - [Horloge temps réel DS3231 RTC (bus I2C)](#Horloge-temps-réel-DS3231-RTC-bus-I2C)
+- [Capteur BME280](#Capteur-BME280)
 - [Capteur de particules fines SDS011 (UART liaison série)](#Capteur-de-particules-fines-SDS011-UART-liaison-série)
 - [Programmes de visualisation de données pour les particules fines en python.](#On-peut-aussi-afficher-la-valeur-avec-ce-programme-PMSensor_pyplotipynb-sous-Jupyter-Notebook)
 - [Récepteur GPS (UART liaison série)](#Récepteur-GPS-UART-liaison-série)
 - [Capteur Grove Ultrasons](#Capteur-Grove-Ultrasons)
+- [Chainable RGB LED](#Chainable_RGB_LED)
 - [Sortie Transistor MOSFET](#Sortie-transistor-mosfet)
 
 Afficheur LCD I2C Grove
@@ -205,6 +207,23 @@ Les sources : [http://www.multiwingspan.co.uk/micro.php?page=rtc](http://www.mul
 
 Il existe aussi une [bibliothèque sur github](https://github.com/shaoziyang/microbit-lib/blob/master/misc/DS3231/DS3231.py)
 
+Capteur BME280
+--------------
+
+Capteur qui mesure la température, la pression atmosphérique et le taux d'humidité
+
+Voici le programme :
+
+```python
+b=BME280()
+while 1:
+    sleep(500)
+    print(b.get())
+```
+
+Le programme complet est test_BME280.py qui contient la classe BME280
+
+
 Capteur de particules fines SDS011 (UART liaison série)
 -------------------------------------------------------
 
@@ -291,7 +310,7 @@ Afficher l'heure UTC et la date ainsi que la latitude et la longitude.
 Pour faire une liste des termes séparés par une virgule en python, on pourra utiliser la fonction split(',')
 
 Capteur Grove Ultrasons
-=======================
+-----------------------
 
 Le capteur à ultrasons permet de mesurer des distances en connaissant la vitesse du son (340 m/s)
 
@@ -327,8 +346,32 @@ while True:
 
 On pourra améliorer l'affichage en précisant l'unité, ou bien en l'affichant sur la matrice de leds ou sur un afficheur LCD ...
 
+Chainable RGB LED
+-----------------
+
+![RGB_LED](Images/Chainable_RGB_LED.jpeg)
+
+Les LED RGB possèdent chacune une entrée et une sortie pour en faire des chaînes.
+
+Elles utilisent un circuit spécialisé le [P9813](https://raw.githubusercontent.com/SeeedDocument/Grove-Chainable_RGB_LED/master/res/P9813_datasheet.pdf)
+
+Il faut utiliser une bibliothèque spécifique : P9813.py qu'il faut mettre dans la carte microchip avec "fichiers" dans Mu-editor
+
+Voici un exemple simple d'utilisation :
+
+```python
+from microbit import pin0,pin14
+import p9813
+pin0.write_digital(0)
+pin14.write_digital(0)
+chain = p9813.P9813(pin0,pin14,2,1)
+chain[0] = (255, 0, 0)
+chain[1] = (0, 255, 0)
+chain.write()
+```
+
 Sortie Transistor MOSFET
-=========================
+------------------------
 
 On va utiliser un module transistor très simple pour allumer un bandeau de 12 leds
 
