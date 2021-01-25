@@ -27,6 +27,7 @@ Les capteurs externes
 - [Capteur de particules fines SDS011 (UART liaison série)](#Capteur-de-particules-fines-SDS011-UART-liaison-série)
 - [Programmes de visualisation de données pour les particules fines en python.](#On-peut-aussi-afficher-la-valeur-avec-ce-programme-PMSensor_pyplotipynb-sous-Jupyter-Notebook)
 - [Récepteur GPS (UART liaison série)](#Récepteur-GPS-UART-liaison-série)
+- [Capteur Grove Ultrasons](#Capteur-Grove-Ultrasons)
 - [Sortie Transistor MOSFET](#Sortie-transistor-mosfet)
 
 Afficheur LCD I2C Grove
@@ -289,12 +290,52 @@ Afficher l'heure UTC et la date ainsi que la latitude et la longitude.
 
 Pour faire une liste des termes séparés par une virgule en python, on pourra utiliser la fonction split(',')
 
+Capteur Grove Ultrasons
+=======================
+
+Le capteur à ultrasons permet de mesurer des distances en connaissant la vitesse du son (340 m/s)
+
+![capteur_US](Images/US_ranger.jpeg)
+
+Lire [Télémètre_à_ultrasons](Vittascience/Télémètre_à_ultrasons.pdf) diaporama fait avec un collègue du Lycée Joliot-Curie.
+
+Voici un programme qui permet de le Lire
+
+```python
+from microbit import *
+from time import sleep_us
+from machine import time_pulse_us
+
+def distance(tp, ep):
+    tp.write_digital(0)
+    sleep_us(2)
+    tp.write_digital(1)
+    sleep_us(10)
+    tp.write_digital(0)
+    ep.read_digital()    
+    ts = time_pulse_us(ep, 1, 30000)
+    if ts > 0: return ts * 17 // 100
+    return ts
+
+while True:
+    dist = distance(pin0, pin0) #carte Grove Trigger et Echo sur la même broche
+    print(dist) #en mm
+    sleep(500)
+```
+
+[time_pulse_us](https://microbit-micropython.readthedocs.io/en/v1.0.1/machine.html) permet de mesurer la largeur d'une impulsion.
+
+On pourra améliorer l'affichage en précisant l'unité, ou bien en l'affichant sur la matrice de leds ou sur un afficheur LCD ...
+
 Sortie Transistor MOSFET
 =========================
 
 On va utiliser un module transistor très simple pour allumer un bandeau de 12 leds
 
-Voici le schéma : ![Sortie_Lampe](Images/Sortie_Lampe.png)
+![SmartArray_LED](Images/SmartArray_LED.png)
+![Mosfet_control_kit.jpeg](Images/Mosfet_control_kit.jpeg)
+
+Voici le schéma électrique : ![Sortie_Lampe](Images/Sortie_Lampe.png)
 
 Il faut une alimentation extérieure de 9 V
 
@@ -310,7 +351,6 @@ La fréquence de la période peut être réglé par 2 fonctions :
  - set_analog_period(period) : Set the period of the PWM signal being output to period in milliseconds. The minimum valid value is 1ms.
 
 - set_analog_period_microseconds(period) : Set the period of the PWM signal being output to period in microseconds. The minimum valid value is 256µs.
-
 
 Ce programme permet de faire varier la luminosité de la lampe avec une sortie MLI/PWM :
 
