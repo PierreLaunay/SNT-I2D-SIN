@@ -210,6 +210,8 @@ Il existe aussi une [bibliothèque sur github](https://github.com/shaoziyang/mic
 Capteur BME280
 --------------
 
+![BME280](Images/BME280_vma335_front.png)
+
 Capteur qui mesure la température, la pression atmosphérique et le taux d'humidité
 
 Voici le programme :
@@ -223,6 +225,7 @@ while 1:
 
 Le programme complet est test_BME280.py qui contient la classe BME280
 
+Ce capteur utilise le bus I2C
 
 Capteur de particules fines SDS011 (UART liaison série)
 -------------------------------------------------------
