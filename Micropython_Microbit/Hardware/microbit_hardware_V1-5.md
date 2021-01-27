@@ -162,7 +162,7 @@ Au travail, BP appuyé : l'entrée est à 0 V
 
 Debounce : antirebond pour les interrupteurs.
 
-![Rebond](../Images/Rebond_BP.svg)
+![Rebond](../Images/rebond.svg)
 
 ![Anti_Rebond](../Images/anti_rebond.svg)
 

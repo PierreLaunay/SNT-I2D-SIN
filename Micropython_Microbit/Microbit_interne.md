@@ -57,6 +57,7 @@ Le programme ne fait que ce qu'on lui dit clairement, on ne lui a jamais demand�
 
 ```python
 # programme 2
+import microbit
 while True :
     if microbit.button_a.is_pressed(): # bouton appuyé ?
         microbit.display.set_pixel(2,2,9)
@@ -66,6 +67,10 @@ while True :
 
 ### Q2) Expliquez le rôle de else (sinon)
 <span style="color:red">Le "else" sinon permet d'éteindre la LED quand on appuie pas sur le bouton</span>
+
+```diff
+- Le "else" sinon permet d'éteindre la LED quand on appuie pas sur le bouton
+```
 
 ## Utilisation d'un bouton poussoir interne
 ### Classe Bouton
@@ -134,6 +139,7 @@ Sinon je ne fais rien !
 
 ```python
 # programme 3
+import microbit
 while True :
     if microbit.button_b.is_pressed(): # bouton b : Marche
         microbit.display.set_pixel(2,2,9)
@@ -156,6 +162,7 @@ while True :
 
 ```python
 # programme 4
+import microbit
 while True :
     if microbit.button_a.is_pressed(): # bouton a : Arrêt
         microbit.display.set_pixel(2,2,0)
@@ -175,9 +182,10 @@ La lampe est éteinte, j'appuie sur un BP, elle s'allume. J'appuie de nouveau su
 
 ```python
 # programme 5
+import microbit
 valeur = 0 # pour avoir la lampe éteinte
 while True :
-    if (microbit.button_b.get_presses() + microbit.button_a.get_presses())%2 :
+    if (microbit.button_b.get_presses() + microbit.button_a.get_presses())%2 == 1 :
         valeur = 9-valeur #valeur = 0 : led éteinte, valeur = 9 : led allumée
         # on inverse à chaque fois que l'un des boutons a changé d'état un nombre impair de fois
         microbit.display.set_pixel(2,2,valeur)
@@ -211,6 +219,7 @@ Les entrées 0,1,2 possèdent des entrées tactiles
 Voici un petit exemple :
 
 ```python
+#programme 6
 from microbit import *
 while True:
     if pin0.is_touched():
@@ -224,12 +233,12 @@ Le plus simple étant de toucher avec 2 doigts de la main gauche le '0' sur le c
 La matrice LED
 --------------
 
-Pour finir voici quelsques exemples avec la matrice LED
+Pour finir voici quelques exemples avec la matrice LED
 
 ```python
+#programme 7
+import microbit
 while True:
-    if microbit.button_a.was_pressed(): #appuyer sur le bouton A pour sortir de la boucle infinie
-        break
     microbit.display.scroll("Bonjour", delay=1000) #attention il faut attendre un cycle complet avant d'arrêter
 ```
 ### Le programme ci-dessus, vous donne un exemple d'un affichage défilant (scroll) avec un avancement lent   
@@ -238,6 +247,7 @@ Vous pouvez changez la vitesse avec le delay
 ### Voici un autre exemple que l'on peut tester sur Mu avec REPL
 
 ```python
+import microbit
 display.show('Bonjour !', wait=False, loop=True)
 ```
 
@@ -273,6 +283,7 @@ help('modules')
     Plus any modules on the filesystem
 
 ```python
+import microbit
 help(microbit)
 ```
 
@@ -281,6 +292,7 @@ help(microbit)
 ### Les outils logiciels pour piloter le matériel : broches, bouton, afficheurs à LED, température, boussole ...
 
 ```python
+import microbit
 print(dir(microbit))
 ```
 
@@ -289,9 +301,9 @@ print(dir(microbit))
 ## Le capteur de température interne
 
 ```python
+#programme 8
+import microbit
 while True:
-    if microbit.button_a.was_pressed(): #appuyer sur le bouton A pour sortir de la boucle infinie
-        break
     microbit.display.scroll(microbit.temperature()) # défilement sur la carte de la température
 ```
 
@@ -310,13 +322,14 @@ Boussole
 
 ## Programmation de base : structure de contrôle if elif pour remplacer le switch case
 ### La fonction switch case n'existe pas en python, on va utiliser une suite de if et elif
-elif = else +if permet de tester un nombre de cas différents comme dans un menu
+elif = else + if permet de tester un nombre de cas différents comme dans un menu
 
 ### Nous allons travailler avec la boussole (compas) intégrer dans la carte Microbit
 #### Définissons d'abord les images des 8 flèches de la rosace des vents
 
 ```python
 # Test des flèches
+import microbit
 fleche_N = microbit.Image("00900:00900:00900:00000:00000")
 fleche_N_E = microbit.Image("00009:00090:00900:00000:00000")
 fleche_E = microbit.Image("00000:00000:00999:00000:00000")
@@ -354,6 +367,8 @@ microbit.compass.calibrate()
 ```
 
 ```python
+# programme 9
+import microbit
 while True:
     if microbit.button_a.is_pressed(): #appuyer sur le bouton A pour sortir du programme
         break
@@ -393,10 +408,10 @@ while True:
 
 ```python
 # version profs avec une liste
+# programme 9 bis
+import microbit
 Rosace_vents=[fleche_N,fleche_N_E,fleche_E,fleche_S_E,fleche_S,fleche_S_O,fleche_O,fleche_N_O] #liste pour profs
 while True:
-    if microbit.button_a.is_pressed(): #appuyer sur le bouton A pour sortir de la boucle infinie
-        break
     aiguille = (225-10 * microbit.compass.heading())%3600 // 450
     microbit.display.show(Rosace_vents[aiguille]) # utilisation d'une liste
 ```
@@ -428,6 +443,7 @@ MicroPython est capable de reconnaître les gestes suivants:
 Voici le programme :
 
 ```python
+# programme 10
 from microbit import *
 while True :
   geste = accelerometer.current_gesture()
@@ -442,6 +458,7 @@ Il faut bouger la carte pour voir tous ces gestes
 Il faut télécharger ce programme sur la carte Microbit avec 'Flasher'
 
 ```python
+# programme 10 bis
 from microbit import *
 while True :
   print(accelerometer.get_values())
@@ -475,6 +492,7 @@ On émet en radio les caractères reçus depuis le clavier
 
 ```python
 # Emetteur radio serie
+# programme 11
 from microbit import *
 import radio
 
@@ -505,6 +523,7 @@ Enfin on envoie en radio le caractère reçu  radio.send
 On affiche sur l'écran les caractères reçus en radio.
 
 ```python
+# programme 12
 # Recepteur radio
 from microbit import *
 import radio
@@ -535,6 +554,7 @@ Sinon (ligne non terminée) on sauvegarde les caractères reçus.
 **Voici l'exemple complet de programme d'émetteur, récepteur radio**
 
 ```python
+# programme 13
 # Recepteur radio
 from microbit import *
 import radio

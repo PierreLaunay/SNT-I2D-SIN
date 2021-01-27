@@ -58,7 +58,9 @@ La [documentation](https://www.seeedstudio.com/300mm-Infrared-shooting-sensor-p-
  - Il y a un émetteur avec 2 fils pour l'alimentation.
  - Un récepteur avec 3 fils que j'ai branché avec un adaptateur sur P0/P14
 
- Pour lire une entrée en micropython nous avons la fonction read_digital() qui doit être associée à une broche (pin)
+![adaptateur-grove](Images/5x-cable-adaptateur-grove-vers-jumper-femelle.png)
+
+ Pour lire une entrée en micropython nous avons la fonction **read_digital()** qui doit être associée à une broche (pin)
 
  Exemple :
 
