@@ -152,16 +152,22 @@ while True :
 
 ### Q6) Que se passe-t-il si on appui plusieurs fois sur le bouton Marche ? (sans appui sur Arrêt)
 
-<span style="color:red"> La LED reste allumée, quelque soit le nombre d'appui sur le bouton Marche </span>
+
+```diff
+- La LED reste allumée, quelque soit le nombre d'appui sur le bouton Marche
+```
+
 <br/> <br/>
 
 ### Q7) Que se passe-t-il si on appui plusieurs fois sur le bouton Arrêt ? (sans appui sur Arrêt)
 
-<span style="color:red"> La LED reste éteinte, quelque soit le nombre d'appui sur le bouton Arrêt </span>
+```diff
+- La LED reste éteinte, quelque soit le nombre d'appui sur le bouton Arrêt
+```
+
 <br/> <br/>
 
 ### Q8) Proposer une solution pour que l'arrêt soit prioritaire
-
 
 ```python
 # programme 4
@@ -206,10 +212,13 @@ Notation en python r = x%2, r = 0 si x est pair, r = 1 si x est impair.
 
 ### Q10)  Expliquez la ligne :
 
-### if (microbit.button_b.get_presses()  + microbit.button_a.get_presses()) %2
+### if (microbit.button_b.get_presses()  + microbit.button_a.get_presses()) %2 == 1
 
-<span style="color:red"> microbit.button_b.get_presses()  + microbit.button_a.get_presses() donne le nombre de fois que l'on a appuyé sur le bouton a ou b<br/>
-Si on appuie un nombre de fois pair alors la lampe garde son état, sinon elle doit changer d'état.<br/> </span>
+```diff
+microbit.button_b.get_presses()  + microbit.button_a.get_presses() donne le nombre de fois que l'on a appuyé sur le bouton a ou b<br/>
+Si on appuie un nombre de fois pair alors la lampe garde son état, sinon elle doit changer d'état.
+```
+<br/>
 
 ## Algorigrammes
 ### Q11) Donner l'algorigramme du programme n°5
@@ -237,6 +246,7 @@ La matrice LED
 --------------
 
 Pour finir voici quelques exemples avec la matrice LED
+![matrice LED](Images/light-sensing.png)
 
 ```python
 #programme 7
@@ -320,6 +330,10 @@ The chip that is used to measure temperature can be found on the left hand side 
 ![Image microbit thermomètre](Images/thermometer.png)
 
 
+Le thermomètre sur la carte micro:bit est à l'intérieur d'un circuit intégré et ceux-ci chauffent quand ils sont sous tension.  
+Aussi le capteur de température ne fait pas de mesures très précises dans la pièce.  
+Le circuit intégré qui est utilisé pour mesurer la température se trouve sur le coté gauche au dos de la carte micro:bit
+
 Boussole
 --------
 
@@ -329,6 +343,8 @@ elif = else + if permet de tester un nombre de cas différents comme dans un men
 
 ### Nous allons travailler avec la boussole (compas) intégrer dans la carte Microbit
 #### Définissons d'abord les images des 8 flèches de la rosace des vents
+
+![Rosace des vents](Images/Rosacedesvents.jpeg)
 
 ```python
 # Test des flèches
@@ -372,6 +388,14 @@ microbit.compass.calibrate()
 ```python
 # programme 9
 import microbit
+fleche_N = microbit.Image("00900:00900:00900:00000:00000")
+fleche_N_E = microbit.Image("00009:00090:00900:00000:00000")
+fleche_E = microbit.Image("00000:00000:00999:00000:00000")
+fleche_S_E = microbit.Image("00000:00000:00900:00090:00009")
+fleche_S = microbit.Image("00000:00000:00900:00900:00900")
+fleche_S_O = microbit.Image("00000:00000:00900:09000:90000")
+fleche_O = microbit.Image("00000:00000:99900:00000:00000")
+fleche_N_O = microbit.Image("90000:09000:00900:00000:00000")
 while True:
     if microbit.button_a.is_pressed(): #appuyer sur le bouton A pour sortir du programme
         break
@@ -426,6 +450,7 @@ while True:
 
 Accéléromètre
 ---------------
+![accéléromètre](Images/accelerometre.jpeg)
 
 ### Gestes
 
@@ -487,6 +512,8 @@ Concrètement on utilise l'un ou l'autre pas les 2 en même temps.
 
 Le module Radio
 ---------------
+
+![radio](Images/communication-radio-microbit.png)
 
 Pour l'utiliser il faut l'importer avec 'import'
 

@@ -31,6 +31,9 @@ Les capteurs externes
 - [Capteur Grove Ultrasons](#Capteur-Grove-Ultrasons)
 - [Chainable RGB LED](#Chainable-RGB-LED)
 - [Sortie Transistor MOSFET](#Sortie-transistor-mosfet)
+- [Commande Moteur](#Commande-Moteur)
+- [Bibliothèques Micro:bit](#Bibliothèques-Micro:bit)
+- [Conclusion](#Conclusion)
 
 Afficheur LCD I2C Grove
 -----------------------
@@ -230,6 +233,8 @@ while 1:
 
 Le programme complet est test_BME280.py qui contient la classe BME280
 
+La bibliothèque [BME280 ](https://github.com/shaoziyang/microbit-lib/tree/master/sensor/bme280)
+
 Ce capteur utilise le bus I2C
 
 Capteur de particules fines SDS011 (UART liaison série)
@@ -415,6 +420,13 @@ for i in range(20):
 
 On peut aussi piloter des moteurs mais attention de nombreuses cartes fonctionnent en 5V en entrée.  
 Il faudra adapter les signaux de la carte Micro:bit qui fonctionne en 3.3V.
+
+Bibliothèques Micro:bit
+------------------------
+
+On trouvera des bibliothèques intéressantes [From microbit/micropython Chinese community.](https://github.com/shaoziyang/microbit-lib) sous licence libre MIT !
+
+Vous en trouverez aussi chez [Vittascience](https://fr.vittascience.com/) !
 
 Conclusion
 ===========
