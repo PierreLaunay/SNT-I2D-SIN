@@ -32,7 +32,7 @@ Les capteurs externes
 - [Chainable RGB LED](#Chainable-RGB-LED)
 - [Sortie Transistor MOSFET](#Sortie-transistor-mosfet)
 - [Commande Moteur](#Commande-Moteur)
-- [Bibliothèques Micro:bit](#Bibliothèques-Micro:bit)
+- [Bibliothèques Micro:bit](#Bibliothèques-Microbit)
 - [Conclusion](#Conclusion)
 
 Afficheur LCD I2C Grove
@@ -421,7 +421,7 @@ for i in range(20):
 On peut aussi piloter des moteurs mais attention de nombreuses cartes fonctionnent en 5V en entrée.  
 Il faudra adapter les signaux de la carte Micro:bit qui fonctionne en 3.3V.
 
-Bibliothèques Micro:bit
+Bibliothèques Microbit
 ------------------------
 
 On trouvera des bibliothèques intéressantes [From microbit/micropython Chinese community.](https://github.com/shaoziyang/microbit-lib) sous licence libre MIT !
