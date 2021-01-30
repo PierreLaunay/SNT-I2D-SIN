@@ -35,7 +35,7 @@ Les capteurs externes
 Afficheur LCD I2C Grove
 -----------------------
 
-**Attention** tous les afficheurs ne fonctionnent pas sous 3.3V, l'afficheur LCD_I2C RGB Grove ne fonctionne pas sous 3.3V par contre l'afficheur LCD_I2C Grove (Black on Yellow) fonctionne en 3.
+**Attention** tous les afficheurs ne fonctionnent pas sous 3.3V, l'afficheur LCD_I2C RGB Grove ne fonctionne pas sous 3.3V par contre l'afficheur LCD_I2C Grove (Black on Yellow) fonctionne en 3.3V.
 
 ![lcd](Images/LCD_I2C_BoY.jpeg)
 
@@ -133,6 +133,9 @@ Capteur de température et humidité DHT 11 Grove
 Voici le programme principal du DHT11
 
 ```python
+import microbit as uBit
+import time
+
 sensor = DHT11(uBit.pin1)
 while True:
     try:

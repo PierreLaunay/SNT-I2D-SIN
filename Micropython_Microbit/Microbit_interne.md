@@ -47,8 +47,12 @@ Il n'y a pas de déclarations de variables en Python, elles sont locales par dé
 La partie après le while True : correspond au loop() sur ARDUINO
 
 ### Q1) Que se passe-t-il si j'appuie sur le bouton poussoir 'a' et que je le relâche ?
-<span style="color:red">La LED s'allume et ne s'éteint pas !  <br>
-Le programme ne fait que ce qu'on lui dit clairement, on ne lui a jamais demandé d'éteindre la LED !</span>
+
+```diff
+- La LED s'allume et ne s'éteint pas !  
+
+- Le programme ne fait que ce qu'on lui dit clairement, on ne lui a jamais demandé d'éteindre la LED !
+```
 
 ## Activité pratique Informatique embarquée AP-IE02P
 
@@ -66,7 +70,6 @@ while True :
 ```
 
 ### Q2) Expliquez le rôle de else (sinon)
-<span style="color:red">Le "else" sinon permet d'éteindre la LED quand on appuie pas sur le bouton</span>
 
 ```diff
 - Le "else" sinon permet d'éteindre la LED quand on appuie pas sur le bouton
