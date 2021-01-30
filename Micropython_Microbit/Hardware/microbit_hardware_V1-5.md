@@ -6,6 +6,8 @@ sensor
 
 v2  **v1.5**  v1.3x
 
+L'original de ce fichier est : [https://tech.microbit.org/hardware/](https://tech.microbit.org/hardware/)
+
 Overview
 --------
 

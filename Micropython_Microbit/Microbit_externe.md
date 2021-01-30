@@ -273,7 +273,7 @@ Ce programme affiche un dictionnaire python avec 3 arguments PM2.5 et sa valeur 
 
 ### On peut aussi afficher la valeur avec ce programme PMSensor_pyplot.ipynb sous Jupyter Notebook
 
-Voici [ce programme](Jupyter/PMSensor_pyplot/PMSensor_pyplot.md)
+Voici [ce programme](Jupyter/PMSensor_pyplot.md)
 
 Récepteur GPS (UART liaison série)
 ----------------------------------
