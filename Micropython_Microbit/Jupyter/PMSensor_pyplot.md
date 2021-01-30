@@ -58,7 +58,7 @@ for i in range(120) :	#1000 lignes, on peut modifier si besoin
     line = ser.readline().decode('utf8')# lecture de la ligne du port série,
     try :
         data = json.loads(line.replace("'",'"'))
-        print(data) 
+        print(data)
     except json.JSONDecodeError:
         print(line)
         continue
@@ -75,11 +75,4 @@ ser.close()		# on ferme le port série
     {'Temps': 5252195, 'PM 2.5': 8.1, 'PM 10': 15.0}
 
 
-
-![png](output_6_1.png)
-
-
-
-```python
-
-```
+![png](../Images/output_6_1.png)
