@@ -10,7 +10,7 @@ ref: hardware
 lang: en
 ---
 
-La version anglaise de ce fichier est : [https://tech.microbit.org/hardware/edgeconnector/](https://tech.microbit.org/hardware/edgeconnector/)
+La version originale en anglais de ce fichier est : [https://tech.microbit.org/hardware/edgeconnector/](https://tech.microbit.org/hardware/edgeconnector/)
 
 ## Overview
 
@@ -164,7 +164,7 @@ Cette table montre les différentes possibilités d'utilisation (fonctions) pour
 
 *3. The DAL DynamicPWM driver (and the underlying Nordic timer peripherals) dictate that PWM can only be active on 3 pins simultaneously. Any attempt to allocate a 4th pin for PWM use, will disable one of the existing PWM pins.*
 
-3. Le driver DAL (gestion dynnamique des sorties MLI) , chaque MLI utilise un timer du processeur Nordic, ne permet de brancher que 3 broches MLI simultanément, si l'on assigne une 4ème sortie MLI, une des 3 broches MLI sera désactivée !
+3. Le driver DAL (gestion dynamique des sorties MLI qui utilisent chacune un timer du processeur Nordic) ne permet de brancher que 3 broches MLI simultanément, si l'on assigne une 4ème sortie MLI, une des 3 broches MLI sera désactivée !
 
 *4. Digital input pins are by default configured with internal pull down resistors when the pins are configured by the DAL.*
 
@@ -176,7 +176,7 @@ Cette table montre les différentes possibilités d'utilisation (fonctions) pour
 
 *6. The source file for [the pinout table](https://tech.microbit.org/docs/hardware/pinmap.csv) is held in CSV format. You can load this into a spreadsheet and sort and filter it in any way that makes sense to you. There is also a [zipped Python script](https://tech.microbit.org/docs/hardware/csv2md.zip) in this folder that you can download to re-generate the markdown table version of the pin map used on this page, from the .csv file.*
 
-6. Le fichier source pour [la table des broches](https://tech.microbit.org/docs/hardware/pinmap.csv) est dans un format CSV. Vous pouvez charger celui-ci dans un tableur et trier et filtrer les données comme vous voulez. Il ya aussi un [script Python compressé](https://tech.microbit.org/docs/hardware/csv2md.zip) Dans ce dossier que vous pouvez télécharger pour regénérer la version markdown de la table sue cette page, depuis le fichier .csv
+6. Le fichier source pour [la table des broches](https://tech.microbit.org/docs/hardware/pinmap.csv) est au format CSV. Vous pouvez charger celui-ci dans un tableur puis trier ou filtrer les données comme vous le voulez. Il y a aussi un [script Python compressé](https://tech.microbit.org/docs/hardware/csv2md.zip) Dans ce dossier que vous pouvez télécharger pour régénérer la version markdown de la table sur cette page, depuis le fichier .csv
 
 7. The pin marked 'ACCESSIBILITY' is used to enable/disable an on-board accessibility mode, and should not be used for anything else (even though it can be used as a GPIO for testing). Future versions of the official micro:bit editors may remove the ability to write to this pin.
 
@@ -184,48 +184,50 @@ Cette table montre les différentes possibilités d'utilisation (fonctions) pour
 
 Pins that are marked with brackets around functions, require the default functionality for that pin to be disabled, before other functions can be used.
 
+Les broches dont les fonctions sont entre parenthèses exigent que leur fonctionnalité par défaut soit désactivée avant que leurs fonctions ne soient modifiées.
+
 ### pins: P3, P4, P6, P7, P9, P10
 
 *These pins are coupled to the LED matrix display, and also its associated ambient light sensing mode. To disable the display driver feature (which will automatically disable the light sensing feature) call the DAL function `display.enable(false)`. To turn the display driver back on again later, call the DAL function `display.enable(true)`.*
 
-Ces broches sont couplées à la matrice de LED, et aussi le capteur associé de mesure de la lumière ambiante. Pour désactiver l'affichage des LEDs (qui automatiquement désactivera le capteur de lumière) appelez la fonction DAL `display.enable(false)` Pour réutiliser l'affichage des LEDs ensuite, appelez la fonction `display.enable(true)`
+Ces broches sont couplées à la matrice de LED, ainsi que le capteur associé de mesure de la lumière ambiante. Pour désactiver l'affichage des LEDs (qui automatiquement désactivera le capteur de luminosité) appelez la fonction DAL `display.enable(false)` Pour réutiliser l'affichage des LEDs ensuite, appelez la fonction `display.enable(true)`
 
 *Note also that the LED 3x9 matrix connects LEDs with associated resistors across these pins, so you should take that into account when designing circuits to use these pins for other purposes.*
 
-Remarque La matrice de LED 3x9 branche les LEDs avec leurs résistances associées à travers ces broches, aussi vous devrez en tenir compte si vous voulez utiliser ces broches pour d'autres usages.
+Remarquez que la matrice de LED 3x9 branche les LEDs avec leurs résistances associées à ces broches. Aussi, vous devrez en tenir compte si vous voulez utiliser ces broches pour d'autres usages.
 
 ### pins: P5, P11
 
 *These pins are assigned to the two on-board buttons. In their default setup with all the standard high level languages, there is a global uBit instance containing: `uBit.buttonA`, `uBit.buttonB` and `uBit.buttonAB`.*
 
-Ces broches sont assignées aux 2 boutons de la carte. Dans leurs initialisation par défaut dans tous les langages de haut niveau, il y a une instance globale uBit qui contient :  `uBit.buttonA`, `uBit.buttonB` et `uBit.buttonAB`.
+Ces broches sont assignées aux 2 boutons de la carte. Tous les langages de haut niveau ont dans leur initialisation par défaut une instance globale uBit qui contient :  `uBit.buttonA`, `uBit.buttonB` et `uBit.buttonAB`.
 
 *Buttons are hooked into the system timer in their constructor for regular debouncing. However, if you want to completely remove this feature and use the physical pins for other purposes, you can `delete uBit.buttonA`, it will call the C++ destructor and de-register the button instance from the system timer, effectively disabling all DAL activity with that pin. It is then possible to use a `MicroBitPin` instance around the physical pin name to control it directly without interference from the DAL*
 
-Les boutons sont liées au timer du système dans leur déclaration pour gérer l'anti-rebond.
-Si vous voulez complètement enlever ces caractéristiques et utiliser la broches physiques pour d'autres usages, vous devez `delete uBit.buttonA` Cela appellera le destructeur C++ et enlèvera le registre du bouton du timer du système, cela dévalidera toute activité du DAL pour cette broche. Il est alors possible d'utiliser une instance `MicroBitPin` auprès de la broche physique pour la contrôler directement sans interférence avec le DAL.
+Les boutons sont liées au timer du système au sein de leur constructeur de classe pour gérer l'anti-rebond.
+Cependant, si vous voulez complètement retirer ces caractéristiques et utiliser la broche physique pour d'autres usages, vous devez faire `delete uBit.buttonA`, ce qui appellera la fonction destructeur C++ et enlèvera du registre le bouton du timer système, cela dévalidera toute activité du DAL pour cette broche. Il est alors possible d'utiliser une instance `MicroBitPin` sur la broche physique pour la contrôler directement sans interférence avec le DAL.
 
 *Be aware though, that there are 10K external pull-up resistors fitted to the micro:bit board.*
 
-Faites attention, il y a une résistance externe de (pull-up) tirage vers le haut sur la carte micro:bit.
+Faites attention, il y a une résistance externe de 10K avec un tirage vers le haut (pull-up) sur la carte micro:bit.
 
 ### pins: P19, P20
 
-These pins are allocated to the I2C bus, which is used by both the on-board motion sensor. It is strongly suggested that you avoid using these pins for any function other than I2C.
+*These pins are allocated to the I2C bus, which is used by both the on-board motion sensor. It is strongly suggested that you avoid using these pins for any function other than I2C.*
 
 Ces broches sont prévues pour le bus I2C, qui est utilisé par l'ensemble des capteurs de mouvement. Il est fortement conseillé d'éviter d'utiliser ces broches pour autres choses que l'I2C.
 
-It is possible to disable the DAL services that use these pins as the I2C bus, but the motion sensor device will still be connected to the bus, and may try to interpret the signals as data payloads, which could create some undesirable side effects on the SDA and interrupt pins. There are 4K7 pull-ups fitted to both pins on the board, so the best use for these two signals is to add other I2C devices.
+*It is possible to disable the DAL services that use these pins as the I2C bus, but the motion sensor device will still be connected to the bus, and may try to interpret the signals as data payloads, which could create some undesirable side effects on the SDA and interrupt pins. There are 4K7 pull-ups fitted to both pins on the board, so the best use for these two signals is to add other I2C devices.*
 
-Il est possible de dévalider les services qui utilisent ces broches comme bus I2C, mais les capteurs de mouvement resteront connectés au bus, et essaieront d'interpréter les signaux comme des données utiles, cela pourra créer des effets de bord indésirables sur la ligne SDA et les broches d'interruption. Il y a 2 résistances de 4,7 k	&Omega; de pull-up tirage vers le haut, aussi le meilleur usage pour ces 2 signaux c'est d'ajouter d'autres circuits I2C.
+Il est possible de désactiver les services qui utilisent ces broches comme bus I2C, mais les capteurs de mouvement resteront connectés au bus, et essaieront d'interpréter les signaux comme des données valides, cela pourra créer des effets de bord indésirables sur la ligne SDA et les broches d'interruption. Il y a 2 résistances de 4,7 k&Omega; de pull-up tirage vers le haut, aussi le meilleur usage pour ces 2 signaux est d'ajouter d'autres circuits I2C.
 
-The main reason you might choose to use these pins for other purposes would be if you were designing your own micro:bit variant without any I2C devices, and then it would free up two more pins for other purposes.
+*The main reason you might choose to use these pins for other purposes would be if you were designing your own micro:bit variant without any I2C devices, and then it would free up two more pins for other purposes.*
 
 ## Power Supply Capabilities
 
 *There is a dedicated page on [power supply capabilities and parameters](https://tech.microbit.org/hardware/powersupply), which better defines how you can use the GND and 3V rings*
 
-Il y a une page dédiée sur [power supply capabilities and parameters](https://tech.microbit.org/hardware/powersupply), qui vous expliquera au mieux comme utiliser les bornes femelles 0V et 3V
+Il y a une page dédiée sur [power supply capabilities and parameters](https://tech.microbit.org/hardware/powersupply), qui vous expliquera au mieux comment utiliser les bornes femelles 0V (masse) et 3V
 
 ## GPIO Capabilities
 
