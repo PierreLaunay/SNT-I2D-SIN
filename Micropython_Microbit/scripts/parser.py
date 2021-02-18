@@ -25,7 +25,7 @@ for path in paths:
             else:
                 requested_links[path].append(base_url+os.path.join(os.path.dirname(path),result))
 
-logging = open("Micropython_Microbit/scripts/error_log.test","w")
+logging = open("Micropython_Microbit/scripts/errors.log","w")
 for a,b in requested_links.items():
     for c in b:
         try:
