@@ -231,7 +231,7 @@ Les entrées 0,1,2 possèdent des entrées tactiles
 Voici un petit exemple :
 
 ```python
-#programme 6
+# programme 6
 from microbit import *
 while True:
     if pin0.is_touched():
@@ -249,7 +249,7 @@ Pour finir voici quelques exemples avec la matrice LED
 ![matrice LED](Images/light-sensing.png)
 
 ```python
-#programme 7
+# programme 7
 import microbit
 while True:
     microbit.display.scroll("Bonjour", delay=1000) #attention il faut attendre un cycle complet avant d'arrêter
@@ -260,6 +260,7 @@ Vous pouvez changez la vitesse avec le delay
 ### Voici un autre exemple que l'on peut tester sur Mu avec REPL
 
 ```python
+# exo 1 REPL
 import microbit
 display.show('Bonjour !', wait=False, loop=True)
 ```
@@ -273,7 +274,7 @@ display.show('Bonjour !', wait=False, loop=True)
 
 Connaître l'ensemble des Images  
 ```python
-#dans REPL de Mu
+# exo 2 dans REPL de Mu
 from microbit import *
 dir(Images)
 ```
@@ -283,6 +284,7 @@ Vous affichera l'ensemble des noms des images possibles et des attributs de imag
 ## Au niveau logiciel, voici l'ensemble des 'modules' ou bibliothèques disponibles
 
 ```python
+# exo 3 dans REPL
 help('modules')
 ```
 
@@ -296,6 +298,7 @@ help('modules')
     Plus any modules on the filesystem
 
 ```python
+# exo 4 dans REPL
 import microbit
 help(microbit)
 ```
@@ -305,6 +308,7 @@ help(microbit)
 ### Les outils logiciels pour piloter le matériel : broches, bouton, afficheurs à LED, température, boussole ...
 
 ```python
+# exo 5 dans REPL
 import microbit
 print(dir(microbit))
 ```
@@ -314,7 +318,7 @@ print(dir(microbit))
 ## Le capteur de température interne
 
 ```python
-#programme 8
+# programme 8
 import microbit
 while True:
     microbit.display.scroll(microbit.temperature()) # défilement sur la carte de la température
@@ -347,6 +351,7 @@ elif = else + if permet de tester un nombre de cas différents comme dans un men
 ![Rosace des vents](Images/Rosacedesvents.jpeg)
 
 ```python
+# programme 9
 # Test des flèches
 import microbit
 fleche_N = microbit.Image("00900:00900:00900:00000:00000")
@@ -382,11 +387,12 @@ La calibration se fait au travers d'un jeu qui dessine un cercle sur l'afficheur
 https://microbit-micropython.readthedocs.io/fr/latest/compass.html
 
 ```python
+# exo 6 dans REPL pour le calibre de la boussole compass
 microbit.compass.calibrate()
 ```
 
 ```python
-# programme 9
+# programme 9 bis
 import microbit
 fleche_N = microbit.Image("00900:00900:00900:00000:00000")
 fleche_N_E = microbit.Image("00009:00090:00900:00000:00000")
@@ -434,8 +440,8 @@ while True:
 <br/> <br/>
 
 ```python
+# programme 9 ter
 # version profs avec une liste
-# programme 9 bis
 import microbit
 Rosace_vents=[fleche_N,fleche_N_E,fleche_E,fleche_S_E,fleche_S,fleche_S_O,fleche_O,fleche_N_O] #liste pour profs
 while True:
@@ -521,8 +527,8 @@ Pour l'utiliser il faut l'importer avec 'import'
 On émet en radio les caractères reçus depuis le clavier
 
 ```python
-# Emetteur radio serie
 # programme 11
+# Emetteur radio serie
 from microbit import *
 import radio
 

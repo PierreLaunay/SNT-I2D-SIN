@@ -1,0 +1,2 @@
+import microbit
+help(microbit)

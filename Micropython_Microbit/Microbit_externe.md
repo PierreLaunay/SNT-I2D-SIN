@@ -46,6 +46,20 @@ Voici un exemple très simple avec Vittascience :
 
 ![afficheur température](Images/lcd_temp.png)
 
+```python
+# programme 1 LCD
+from microbit import *
+from lcd_i2c import LCD1602
+
+lcd = LCD1602()
+
+while True :
+  lcd.setCursor(0,0)
+  lcd.writeTxt(str(temperature()))
+
+```
+**Attention** il faut télécharger la bibliothèque lcd_i2c sur la carte Micro:bit avec fichiers dans Mu si vous essayez dans Mu
+
 L'afficheur affiche la température du processeur de la carte Micro:bit.
 
 On pourra améliorer l'affichage en précisant sur la ligne 1 un texte et la ligne 2 la température ainsi que °C
@@ -68,6 +82,7 @@ La [documentation](https://www.seeedstudio.com/300mm-Infrared-shooting-sensor-p-
  Exemple :
 
 ```python
+# programme 2 barriereIR
 from microbit import pin14
 print(pin14.read_digital())
 ```
@@ -87,6 +102,8 @@ Cette résistance de Pull-Down affaiblit le signal du récepteur Infrarouge.
 Nous allons ne pas mettre de résistance de tirage, ni vers le bas, ni vers le haut, avec l'instruction set_pull(pin14.NO_PULL) :
 
 ```python
+# programme 2 bis barriereIR2
+from microbit import pin14
 pin14.set_pull(pin14.NO_PULL)
 print(pin14.read_digital())
 ```
@@ -122,6 +139,7 @@ Le capteur [GA1A1S202WP](https://cdn-shop.adafruit.com/datasheets/GA1A1S202WP_Sp
 Ce capteur permet de mesurer la luminosité de 3 à 55000 lux avec une fonction exponentielle.
 
 ```python
+# programme 3 Luminosite
 import microbit
 valeur=microbit.pin2.read_analog()
 lux=10**(valeur*4.74/1024)
@@ -136,6 +154,7 @@ Capteur de température et humidité DHT 11 Grove
 Voici le programme principal du DHT11
 
 ```python
+# programme 4 DHT11
 import microbit as uBit
 import time
 
@@ -161,6 +180,7 @@ Cette Horloge temps réel permet de la mettre à l'heure et ensuite de lire la d
 On peut aussi mettre 2 alarmes mais elles ne sont pas gérées dans le code ci-dessous.
 
 ```python
+# programme 5 RTC
 from microbit import *
 
 def bcd2dec(bcd):
@@ -225,6 +245,7 @@ Capteur qui mesure la température, la pression atmosphérique et le taux d'humi
 Voici le programme :
 
 ```python
+# programme 6 BME280
 b=BME280()
 while 1:
     sleep(500)
@@ -249,6 +270,7 @@ Voici les [informations utiles](Externe/Laser_PM2-5_Sensor.md) pour s'en servir.
 Comme vous pouvez le voir dans ce programme, on bascule la liaison série entre le capteur de particules fines et l'écran du PC via le port USB pour afficher les valeurs de PM10 et PM2.5
 
 ```python
+# programme 7 SDS011
 import microbit,utime
 microbit.uart.init(baudrate=9600,tx = microbit.pin0, rx = microbit.pin1) # init de la liaison série du capteur de particules fines SDS011 , vitesse 9600 bauds
 def verification(donnees): #on vérifie les données reçues voir doc SDS011
@@ -283,6 +305,7 @@ Capteur GY-NE06MV2 ![GPS](Images/gps.png)
 Le principe de fonctionnement reste identique aux capteur de particules, la liaison série permet de lire l'information GPS du capteur et de l'afficher sur l'écran du PC.
 
 ```python
+# programme 8 GPS
 import microbit,utime
 microbit.uart.init(baudrate=9600,tx = microbit.pin0, rx = microbit.pin1) # init GPS NEO
 
@@ -334,6 +357,7 @@ Lire [Télémètre_à_ultrasons](Vittascience/Télémètre_à_ultrasons.pdf) dia
 Voici un programme qui permet de le Lire
 
 ```python
+# programme 9 Telemetre
 from microbit import *
 from time import sleep_us
 from machine import time_pulse_us
@@ -359,7 +383,7 @@ while True:
 
 On pourra améliorer l'affichage en précisant l'unité, ou bien en l'affichant sur la matrice de leds ou sur un afficheur LCD ...
 
-Chainable RGB LED
+LED RVB enchainable
 -----------------
 
 ![RGB_LED](Images/Chainable_RGB_LED.jpeg)
@@ -373,6 +397,7 @@ Il faut utiliser une bibliothèque spécifique : P9813.py qu'il faut mettre dans
 Voici un exemple simple d'utilisation :
 
 ```python
+# programme 10 RGB chainable
 from microbit import pin0,pin14
 import p9813
 pin0.write_digital(0)
@@ -411,6 +436,7 @@ La fréquence de la période peut être réglé par 2 fonctions :
 Ce programme permet de faire varier la luminosité de la lampe avec une sortie MLI/PWM :
 
 ```python
+# programme 11 PWM-MLI
 for i in range(20):
   pin16.write_analog(i*50)
   sleep(1000)
