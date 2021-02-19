@@ -260,7 +260,7 @@ Vous pouvez changez la vitesse avec le delay
 ### Voici un autre exemple que l'on peut tester sur Mu avec REPL
 
 ```python
-# exo 1 REPL
+# exo 1 dans REPL
 import microbit
 display.show('Bonjour !', wait=False, loop=True)
 ```
