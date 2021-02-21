@@ -1,5 +1,5 @@
-Géolocalisation et marqueur avec OpenStreetmap sur JupyterLab
-=============================================================
+Géolocalisation et marqueur avec OpenStreetmap sur JupyterLab en ligne
+=======================================================================
 
 Utilisation de JupyterLab online sur [Jupyter.org](https://jupyter.org/)
 ------------------------------------------------------------------------
