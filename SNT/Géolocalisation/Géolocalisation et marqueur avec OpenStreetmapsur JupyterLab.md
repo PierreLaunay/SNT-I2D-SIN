@@ -12,14 +12,14 @@ Cliquez sur : [Try JupyterLab](https://mybinder.org/v2/gh/jupyterlab/jupyterlab-
 
 Vous devriez obtenir cette page :
 
-![jupyterlab0](images/jupyterlab0.png)
+![jupyterlab0](../images/jupyterlab0.png)
 
 - Maintenant, il faut déposer le NoteBook que nous allons faire.
 - Ce Notebook à une extension ipynb
 - Ouvrir l'explorateur de fichier
 - Glisser déposer votre fichier "python_folium_multi_marker_eleves.ipynb" avec un « glisser déposer », 'drag and drop'
 
-![jupyterlab1](images/jupyterlab1.png)
+![jupyterlab1](../images/jupyterlab1.png)
 
 Il faut ensuite double cliquer sur le fichier déposé "python_folium_multi_marker_eleves.ipynb" pour le voir apparaître sur la fenêtre de droite. Penser à fermer la partie documentation pour mieux voir votre fichier.
 
