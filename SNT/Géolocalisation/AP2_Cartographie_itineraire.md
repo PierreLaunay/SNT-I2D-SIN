@@ -4,6 +4,8 @@ Utilisation de géoportail pour préparer ma randonnée en forêt.
 Préparer ma randonnée dans la forêt de Paimpont
 -----------------------------------------------
 
+On travaille toujours avec [Géoportail](https://www.geoportail.gouv.fr)
+
 Gwenn habite à Rennes près du lycée Joliot-Curie. Elle propose à son ami Alan d’aller faire
 une randonnée  dans la forêt de Paimpont (35 – Ille et Vilaine). Elle lui propose
 l’organisation suivante :
