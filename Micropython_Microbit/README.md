@@ -71,7 +71,7 @@ Voici 2 diaporamas en odp ou en pdf pour travailler avec les cartes Micro:bit av
 
 [Vittascience/Bloc_Python_Microbit.pdf](Vittascience/Bloc_Python_Microbit.pdf)
 
-[Vittascience/Bloc_Python_Microbit2.pdf](Vittascience/Bloc_Python_Microbit2.pdf])
+[Vittascience/Bloc_Python_Microbit2.pdf](Vittascience/Bloc_Python_Microbit2.pdf)
 
 Ces diaporamas ont été faits pour des élèves de seconde en SNT pour passer des blocs au langage Python.
 
