@@ -37,10 +37,10 @@ Le document principal [La carte Microbit Joliot Curie 2021.md](La%20carte%20Micr
 
  2 fichiers pour essayer les capteurs internes et externes
 
- Ces fichiers au format html :
+ Ces fichiers au format markdown :
 
- - [Microbit_interne_prof.ipynb](Jupyter/Microbit_interne_prof.html)
- - [Microbit_externe.ipynb](Jupyter/Microbit_externe.html)
+ - [Microbit_interne_prof.md](Jupyter/Microbit_interne_prof.md)
+ - [Microbit_externe.md](Jupyter/Microbit_externe.md)
 
 1. Il faut installer Jupyter Notebook sur votre PC ou Anaconda.
 
