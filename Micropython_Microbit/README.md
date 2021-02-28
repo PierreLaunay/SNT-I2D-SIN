@@ -57,6 +57,11 @@ Un exemple de graphe avec Jupyter Notebook dans le dossier Jupyter
 
  - [Algo_Microbit.ipynb](Jupyter/Algo_Microbit.ipynb)
 
+Un répertoire Software
+-----------------------
+
+ [Voici la liste des programmes en Micropython](software/liste_programmes.md)
+
 Un répertoire Vittascience
 --------------------------
 
@@ -64,8 +69,12 @@ Avec l'application Vittascience en ligne on peut simuler la carte Micro:bit :
 
 Voici 2 diaporamas en odp ou en pdf pour travailler avec les cartes Micro:bit avec des blocs ou en python.
 
+[Vittascience/Bloc_Python_Microbit.pdf]
+
+[Vittascience/Bloc_Python_Microbit2.pdf]
+
 Ces diaporamas ont été faits pour des élèves de seconde en SNT pour passer des blocs au langage Python.
 
 Un diaporama fait avec un collègue du lycée Joliot-Curie pour utiliser un capteur Ultrasons relié à une carte Micro:bit avec une interface Grove pour la connectique.
 
-Des programmes en micropython dans le dossier Software
+[Vittascience/Télémètre_à_ultrasons.pdf]
