@@ -1,17 +1,17 @@
 Programmation de base de la carte Microbit
 ==========================================
 
- - [Activité pratique Informatique embarquée AP-IE01P](#Activité-pratique-Informatique-embarquée-AP-IE01P)
- - [Activité pratique Informatique embarquée AP-IE02P](#Activité-pratique-Informatique-embarquée-AP-IE02P)
- - [Activité pratique structure de contrôle If multiple AP-IE03P](#Activité-pratique-structure-de-contrôle-If-multiple-AP-IE03P)
- - [Programmation de base structure de contrôle if else et mémoire AP-IE04P](#Programmation-de-base-structure-de-contrôle-if-else-et-mémoire-AP-IE04P)
+ - [Activité pratique Informatique embarquée AP-IE01P](#activité-pratique-informatique-embarquée-ap-ie01p)
+ - [Activité pratique Informatique embarquée AP-IE02P](#activité-pratique-informatique-embarquée-ap-ie02p)
+ - [Activité pratique structure de contrôle If multiple AP-IE03P](#activité-pratique-structure-de-contrôle-if-multiple-ap-ie03p)
+ - [Programmation de base structure de contrôle if else et mémoire AP-IE04P](#programmation-de-base-structure-de-contrôle-if-else-et-mémoire-ap-ie04p)
 
- - [Le capteur de température interne](#Le-capteur-de-température-interne)
- - [Boussole](#Boussole)
- - [L'accéléromètre](#Accéléromètre)
- - [Accéléromètre : graphique avec Mu-code](#Graphique-avec-Mu-code)
- - [Radio et Bluetooth](#Radio-et-Bluetooth)
- - [Enfin pour finir voici la communication Réseau ou Network](#Enfin-pour-finir-voici-la-communication-Réseau-ou-Network)
+ - [Le capteur de température interne](#le-capteur-de-température-interne)
+ - [Boussole](#boussole)
+ - [L'accéléromètre](#accéléromètre)
+ - [Accéléromètre : graphique avec Mu-code](#graphique-avec-Mu-code)
+ - [Radio et Bluetooth](#radio-et-bluetooth)
+ - [Enfin pour finir voici la communication Réseau ou Network](#enfin-pour-finir-voici-la-communication-réseau-ou-network)
 
 ![Image microbit](Images/microbit-front.png)
 
