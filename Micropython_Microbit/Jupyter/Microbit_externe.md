@@ -20,23 +20,21 @@ Cette carte est à réserver aux enseignants et aux élèves qui font attention.
 Les capteurs externes
 ----------------------
 
-[[_TOC_]]
-
-- [Afficheur LCD I2C](#Afficheur%20LCD%20I2C%20Grove)
-- [Barrière Infrarouge](#Barrière-Infrarouge)
-- [Capteur de luminosité (entrée analogique)](#Capteur-de-luminosité-GA1A1S202WP-entrée-analogique)
-- [Capteur de température et humidité DHT 11 Grove.](#Capteur-de-température-et-humidité-DHT-11-Grove)
-- [Horloge temps réel DS3231 RTC (bus I2C)](#Horloge-temps-réel-DS3231-RTC-bus-I2C)
-- [Capteur BME280](#Capteur-BME280)
-- [Capteur de particules fines SDS011 (UART liaison série)](#Capteur-de-particules-fines-SDS011-UART-liaison-série)
-- [Programmes de visualisation de données pour les particules fines en python.](#On-peut-aussi-afficher-la-valeur-avec-ce-programme-PMSensor_pyplot.ipynb-sous-Jupyter-Notebook)
-- [Récepteur GPS (UART liaison série)](#Récepteur-GPS-UART-liaison-série)
-- [Capteur Grove Ultrasons](#Capteur-Grove-Ultrasons)
-- [Chainable RGB LED](#Chainable-RGB-LED)
-- [Sortie Transistor MOSFET](#Sortie-Transistor-MOSFET)
-- [Commande Moteur](#Commande-Moteur)
-- [Bibliothèques Micro:bit](#Bibliothèques-Micro:bit)
-- [Conclusion](#Conclusion)
+- [Afficheur LCD I2C](#afficheur-lcd-i2c-grove)
+- [Barrière Infrarouge](#barrière-infrarouge)
+- [Capteur de luminosité (entrée analogique)](#capteur-de-luminosité-ga1a1s202wp-entrée-analogique)
+- [Capteur de température et humidité DHT 11 Grove.](#capteur-de-température-et-humidité-dht-11-grove)
+- [Horloge temps réel DS3231 RTC (bus I2C)](#horloge-temps-réel-ds3231-rtc-bus-i2c)
+- [Capteur BME280](#capteur-bme280)
+- [Capteur de particules fines SDS011 (UART liaison série)](#capteur-de-particules-fines-sds011-uart-liaison-série)
+- [Programmes de visualisation de données pour les particules fines en python.](#on-peut-aussi-afficher-la-valeur-avec-ce-programme-pmsensor_pyplotipynb-sous-jupyter-notebook)
+- [Récepteur GPS (UART liaison série)](#récepteur-gps-uart-liaison-série)
+- [Capteur Grove Ultrasons](#capteur-grove-ultrasons)
+- [Chainable RGB LED](#chainable-rgb-led)
+- [Sortie Transistor MOSFET](#sortie-transistor-mosfet)
+- [Commande Moteur](#commande-moteur)
+- [Bibliothèques Micro:bit](#bibliothèques-microbit)
+- [Conclusion](#conclusion)
 
 
 Afficheur LCD I2C Grove
