@@ -19,6 +19,9 @@ Cette carte est à réserver aux enseignants et aux élèves qui font attention.
 
 Les capteurs externes
 ----------------------
+
+[[_TOC_]]
+
 - [Afficheur LCD I2C](#Afficheur%20LCD%20I2C%20Grove)
 - [Barrière Infrarouge](#Barrière-Infrarouge)
 - [Capteur de luminosité (entrée analogique)](#Capteur-de-luminosité-GA1A1S202WP-entrée-analogique)
