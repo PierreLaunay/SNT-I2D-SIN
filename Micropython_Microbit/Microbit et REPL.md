@@ -74,12 +74,14 @@ Python/micro:bit documentation is here: https://microbit-micropython.readthedocs
 Vous avez des liens sur le langage Python, puis plus précisément sur le
 langage MicroPython et enfin sur le langage MicroPython pour la carte Microbit.
 
-Nous allons voir 3 choses dans ce document :
+Nous allons voir 5 choses dans ce document :
 - Les différentes bibliothèques qui sont déjà implantées sur la carte MicroBit avec la commande  *help('modules')*
 - La commande dir() qui permet pour une bibliothèque de connaître les objets et pour un objet ses différentes méthodes ou fonctions.
 - La méthode help qui donne une aide ou des informations sur la bibliothèque ou l'objet en question.
+- Comment récupérer des listes d'images et de broches
+- Un exemple complet avec sources et réponses
 
-# help(modules)
+# help('modules')
 
 Tapons cette ligne dans le terminal :
 
@@ -355,7 +357,61 @@ object 2 is of type int
 
 *Il faut régulièrement faire un gc.collect() pour libérer de la mémoire.*
 
-Voici un fichier complet [microbit_aide_bibliotheques.py](software/microbit_aide_bibliotheques.py) que vous trouverez aussi dans software à télécharger dans une carte microbit.
+# liste des images
+Dans le cas où aucune bibliothèque n'est installée, il faut mettre la bibliothèque microbit puis récupérer les images dans microbit.Image avec dir
+
+<pre>
+<code>
+>>> import microbit
+>>> images=sorted([ i for i in dir(microbit.Image) if i[0].isupper()])
+>>> images
+['ALL_ARROWS', 'ALL_CLOCKS', 'ANGRY', 'ARROW_E', 'ARROW_N', 'ARROW_NE', 'ARROW_NW', 'ARROW_S', 'ARROW_SE', 'ARROW_SW', 'ARROW_W', 'ASLEEP', 'BUTTERFLY', 'CHESSBOARD', 'CLOCK1', 'CLOCK10', 'CLOCK11', 'CLOCK12', 'CLOCK2', 'CLOCK3', 'CLOCK4', 'CLOCK5', 'CLOCK6', 'CLOCK7', 'CLOCK8', 'CLOCK9', 'CONFUSED', 'COW', 'DIAMOND', 'DIAMOND_SMALL', 'DUCK', 'FABULOUS', 'GHOST', 'GIRAFFE', 'HAPPY', 'HEART', 'HEART_SMALL', 'HOUSE', 'MEH', 'MUSIC_CROTCHET', 'MUSIC_QUAVER', 'MUSIC_QUAVERS', 'NO', 'PACMAN', 'PITCHFORK', 'RABBIT', 'ROLLERSKATE', 'SAD', 'SILLY', 'SKULL', 'SMILE', 'SNAKE', 'SQUARE', 'SQUARE_SMALL', 'STICKFIGURE', 'SURPRISED', 'SWORD', 'TARGET', 'TORTOISE', 'TRIANGLE', 'TRIANGLE_LEFT', 'TSHIRT', 'UMBRELLA', 'XMAS', 'YES']
+</code>
+</pre>
+
+sorted permet de trier les images et la fonction  if i[0].isupper()] permet de supprimer les attributs et fonctions qui ne commencent pas par une majusculedans une compréhension de liste.
+
+Finalement on ne garde que les images triées par ordre alphabétique.
+
+# liste des broches et méthodes communes et distinctes
+
+<pre>
+<code>
+>>> info_pin = {i:dir(eval('microbit.'+i)) for i in dir(microbit) if i.startswith("pin")}
+>>> sub,sup=set(info_pin["pin0"]),set()
+>>> for i in info_pin.values():
+...     sub = sub.intersection(i)
+...     sup = sup.union(i)
+...     
+>>> print(sup)            
+{'set_analog_period_microseconds', 'set_pull', 'PULL_DOWN', 'is_touched', 'get_mode', 'get_pull', 'get_analog_period_microseconds', 'set_analog_period', 'read_digital', 'write_analog', 'read_analog', 'NO_PULL', 'write_digital', 'PULL_UP'}
+>>> print(sub)
+{'get_mode', 'get_pull', 'write_digital', 'read_digital', 'set_pull', 'NO_PULL', 'PULL_DOWN', 'PULL_UP', 'write_analog', 'set_analog_period', 'set_analog_period_microseconds'}
+>>> print(sup-sub)
+{'is_touched', 'get_analog_period_microseconds', 'read_analog'}
+>>> broches=(sorted(info_pin.keys(), key=lambda x: int(x[3:])))
+>>> print(broches)
+['pin0', 'pin1', 'pin2', 'pin3', 'pin4', 'pin5', 'pin6', 'pin7', 'pin8', 'pin9', 'pin10', 'pin11', 'pin12', 'pin13', 'pin14', 'pin15', 'pin16', 'pin19', 'pin20']
+</code>
+</pre>
+
+On utilise un nouvel objet le set() ensemble en français :
+[5.4. Ensembles](https://docs.python.org/fr/3/tutorial/datastructures.html#sets)
+
+Cela nous permet d'obtenir dans :
+- sup  l'ensemble des méthodes possibles avec les broches (pins)
+- sub l'ensemble des méthodes communes à toutes les broches
+- sup-sub l'ensemble des méthodes qui sont spécifiques à quelques broches.
+
+## Extra Python vers MicroPython pour Microbit
+
+La cart Microbit ne contient que 32ko de RAM aussi ses bibliothèques sont limitées
+
+Pour aller plus loin, nous allons piloter la carte Microbit en [python](Microbit_python_micropython.md)
+
+# Voici un fichier complet [microbit_aide_bibliotheques.py](software/microbit_aide_bibliotheques.py)  
+
+Vous le trouverez dans software à télécharger dans une carte microbit.
 
 <pre>
 <code>
