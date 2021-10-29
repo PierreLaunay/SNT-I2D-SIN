@@ -26,15 +26,39 @@ Question 1 :
     a) Editer le programme suivant sous https://python.microbit.org/v/2 avec Google Chrome  (sans oublier de le sauvegarder) avant de le téléverser pour vérifier son bon fonctionnement :
 
 <div>
-<img src="../Images/algo_clignotant.svg" align="right">
-    <div style="margin: 1em 0 0 0; background-color:lightgrey;">
-<p style="margin: 1em 0 0 0;"> from microbit import *</p>
-<p style="margin: 4em 0 0 0;"> while True:</p>
-<p style="margin: 5em 0 0 2em;"> display.set_pixel(2,2,9)</p>
-<p style="margin: 4em 0 0 2em;"> sleep(500)</p>
-<p style="margin: 3em 0 0 2em;"> display.set_pixel(2,2,0)</p>
-<p style="margin: 4em 0 0 2em;"> sleep(1000)</p>
-   </div>
+    <img src="../Images/algo_clignotant.svg" align="right">
+    <div>
+        <p > from microbit import *</p>
+        <br>
+        <br>
+        <br>
+        <p > while True:</p>
+        <blockquote>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p><b>display.set_pixel(2,2,9)</b></p>
+            <br>
+            <br>
+            <p ><b> sleep(500)</b></p>
+            <br>
+            <br>
+            <p ><b> display.set_pixel(2,2,0)</b></p>
+            <br>
+            <br>
+            <p ><b> sleep(1000)</b></p>
+        </blockquote>
+    </div>
 </div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 b) Dans le document réponse, indiquer le lien (par des flèches) entre l’algorithme de l’application et le programme micropython Microbit.
