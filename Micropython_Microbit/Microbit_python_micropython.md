@@ -86,3 +86,62 @@ Dans cet exemple :
 - 3 broches pin3,pin4 et pin10 ont la méthode read_analog en plus.
 - 3 broches pin0,pin1 et pin2 ont les méthodes read_analog et is_touched en plus.
 - 13 broches pin7, pin6, pin5, pin20, pin8, pin9, pin13, pin12, pin11, pin16, pin15, pin14, pin19 ont la méthode get_analog_period_microseconds en plus.
+
+## Une version paramétrable
+
+<pre>
+<code>
+import re,serial,time
+
+parser = re.compile(r">>>(.+?)(?=>>>)",re.S)
+
+def envoyer_messages(messages) :
+    for message in messages: ser.write(message) # on import la bibliothèque microbit, on récupère la liste des broches et leurs méthodes puis on l'affiche
+    debut=time.time() #on initilaise le temps
+    texte="" #on prendre un texte vide pour commencer
+    while time.time()-debut < 1: #on récupère pendant 1 s les caractères reçus
+        if ser.in_waiting : #caractère reçu ?
+            texte+=ser.read(ser.in_waiting).decode("utf-8")#on le lit et on le transforme en utf8
+            debut=time.time()
+    return texte # on affiche le texte reçu
+
+def reset():
+    messages=[b'import microbit\r\n',b'microbit.reset()\r\n']
+    envoyer_messages(messages)
+
+def acquisition_messages(messages=[b'import microbit\r\n'],sortie='fin'):
+    print("Écriture des commandes à envoyer à la carte Microbit")
+    while (message:=input('>>> ')) !=sortie:
+        messages.append((message+'\r\n').encode('utf-8'))
+    return messages
+
+ser=serial.Serial('/dev/ttyACM0') #ouvre le port du microbit
+ser.baudrate=115200 # le baudrate est à 115200 bauds par défaut
+print(ser) #on affiche les infos du port série
+reset()
+messages_microbit=acquisition_messages()#([])
+texte_reçu=envoyer_messages(messages_microbit)
+if (matches:=parser.findall(texte_reçu)) != []:
+    for match in matches:print(match)
+ser.close()
+</code>
+</pre>
+
+**Attention** ce programme nécessite d'avoir au moins python 3.8
+
+L'acquisition se fait dans la console, comme dans REPL
+
+ ### Voici un exemple :
+
+ <pre>
+ <code>
+ Serial<id=0x7f9663510940, open=True>(port='/dev/ttyACM0', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=None, xonxoff=False, rtscts=False, dsrdtr=False)
+Écriture des commandes à envoyer à la carte Microbit
+
+>>> help(microbit)
+
+>>> fin
+ help(microbit)
+Useful stuff to control the micro:bit hardware.
+ </code>
+ </pre>
