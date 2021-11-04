@@ -19,6 +19,8 @@ Le document principal [La carte Microbit Joliot Curie 2021.md](La%20carte%20Micr
 
 - Des programmes avec les composants internes à la carte Microbit [Microbit_interne.md](Microbit_interne.md)
 - Des programmes avec des capteurs externes à la carte Microbit [Microbit_externe.md](Microbit_externe.md)
+-Travailler en direct en Micropython avec la carte Microbit [Microbit et REPL](Microbit_REPL.md)
+- Piloter en python une carte Microbit avec des commandes en micropython [Python et Microbit Micropython](Microbit_python_micropython.md)
 
 ### Des documents spécifiques
 
@@ -78,3 +80,8 @@ Ces diaporamas ont été faits pour des élèves de seconde en SNT pour passer d
 Un diaporama fait avec un collègue du lycée Joliot-Curie pour utiliser un capteur Ultrasons relié à une carte Micro:bit avec une interface Grove pour la connectique.
 
 [Vittascience/Télémètre_à_ultrasons.pdf](Vittascience/Télémètre_à_ultrasons.pdf)
+
+Un répertoire AP_I2D
+---------------------
+
+L'ensembles des Activités pratiques en première I2D en Micropython et la carte Microbit [AP_I2D](AP_I2D/README.md)
