@@ -22,7 +22,6 @@ Structure du programme à compléter :
 # Nom :
 # Date :
 # ------------------------------------
-
 # Add your Python code here. E.g.
 from microbit import *
 
@@ -30,13 +29,13 @@ etat_bpm = 0
 etat_bpa = 0
 
 while TRUE : # A compléter
-
-# il faut lire les 2 BP A et B avec is_pressed()et gérer etat_bpm et etat_bpa
-
-
-# Il faut allumer ou éteindre la LED avec display.set_pixel(x, y, value)
 </code>
 </pre>
+
+#### Il faut lire les 2 BP A et B avec is_pressed() et gérer etat_bpm et etat_bpa
+
+#### Il faut allumer ou éteindre la LED avec display.set_pixel(x, y, value)
+
 
 Que doit faire le programme ? Au départ, la LED devra être éteinte.
 Si on appuie sur BP B, la LED centrale doit s'allumer.
@@ -45,8 +44,8 @@ Sinon, si on appuie sur BP A, la LED  centrale doit s'éteindre.
 Pour obtenir de l'aide sur les fonctions is_pressed(), display,set_pixel( et sur la structure de contrôle if, allez sur les pages https://microbit-micropython.readthedocs.io/fr/latest/
 
 Pour programmer :
-    • En ligne avec  https://python.microbit.org/v/2 avec Google Chrome
-    • ou bien Mu s’il est installé sur le PC
+- En ligne avec  https://python.microbit.org/v/2 avec Google Chrome
+- ou bien Mu s’il est installé sur le PC
 
 On allumera la LED au centre de la matrice de LEDs
 

@@ -25,7 +25,6 @@ Structure du programme à compléter :
 # Nom :
 # Date :
 #-------------------------------------
-
 # Add your Python code here. E.g.
 from microbit import *
 
@@ -40,12 +39,9 @@ while True :
     display.show(Image.ARROW_NW)
  elif plage() == 1 :
     display.show(. . . . . . .)
-  elif # a compléter
-
-
-
-</pre>
+  elif # à compléter
 </code>
+</pre>
 
 Que doit faire le programme ?
 
@@ -56,8 +52,8 @@ Fonction while True:
 Pour obtenir de l'aide sur les fonctions is_pressed(), display,set_pixel( et sur la structure de contrôle if, allez sur les pages https://microbit-micropython.readthedocs.io/fr/latest/
 
 Pour programmer :
-    • En ligne avec  https://python.microbit.org/v/2 avec Google Chrome
-    • ou bien Mu s’il est installé sur le PC
+- En ligne avec  https://python.microbit.org/v/2 avec Google Chrome
+- ou bien Mu s’il est installé sur le PC
 
 Voici la fonction plage : ((compass.heading()-22)//45)%8
 
@@ -67,11 +63,12 @@ le symbole // correspond à la division entière et le % au modulo (le reste de
 ![Image boussole](../Images/Zone_boussole.png)
 
 Travail demandé :
-1) Justifier la fonction plage et la formule ((compass.heading()-22)//45)%8
+### 1) Justifier la fonction plage et la formule ((compass.heading()-22)//45)%8
 
-2) Compléter le programme et tester le
+### 2) Compléter le programme et tester le
 
-3) Tester le programme sur la page :  https://microbit-micropython.readthedocs.io/en/v1.0.1/compass.html
+### 3) Tester le programme de la page :  
+https://microbit-micropython.readthedocs.io/en/v1.0.1/compass.html
 
 Expliquer le fonctionnement et expliquer l’utilisation de la liste des images Image.ALL_CLOCKS
 

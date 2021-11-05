@@ -22,7 +22,6 @@ Matériel :
 # Nom :
 # Date :
 #----------------------------------
-
 # Add your Python code here. E.g.
 from microbit import * # on importe la bibliothèque microbit qui gère le matériel (hardware)
 </pre>
@@ -55,8 +54,8 @@ Pour obtenir de l'aide sur les fonctions is_pressed(), display,set_pixel() et su
 <br>
 
 #### Pour programmer :
-    • En ligne avec  https://python.microbit.org/v/2 avec Google Chrome
-    • ou bien Mu s’il est installé sur le PC
+- En ligne avec [https://python.microbit.org/v/2](https://python.microbit.org/v/2) avec Google Chrome
+- ou bien Mu s’il est installé sur le PC
 
 On allumera la **LED au centre** de la matrice de LEDs
 

@@ -26,12 +26,10 @@ etat_prec_bp = 0
 etat_led = 0
 
 while True :
-
-
-</pre>
 </code>
+</pre>
 
-#### Que doit faire le programme ? 
+#### Que doit faire le programme ?
 
 Après avoir configuré les entrées/sorties, la LED devra être éteinte.
 

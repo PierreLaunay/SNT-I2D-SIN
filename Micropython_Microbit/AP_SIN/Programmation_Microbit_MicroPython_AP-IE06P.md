@@ -22,12 +22,10 @@ Structure du programme à compléter :
 // Date :
 //-------------------------------------
 from microbit import *
-
 while True :
-# Faire une boucle pour l’axe y
-# Faire une boucle imbriquée pour l’axe x
-# Pour l’affichage la fonction  display.set_pixel(x, y, value)
-
+ # Faire une boucle pour l’axe y
+ # Faire une boucle imbriquée pour l’axe x
+ # Pour l’affichage la fonction  display.set_pixel(x, y, value)
 </pre>
 </code>
 

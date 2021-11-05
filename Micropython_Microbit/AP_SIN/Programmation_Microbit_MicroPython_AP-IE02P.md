@@ -21,7 +21,6 @@ Structure du programme à compléter :
 # Nom :
 # Date :
 #----------------------------------
-
 # Add your Python code here. E.g.
 from microbit import * # on importe la bibliothèque microbit qui gère le matériel (hardware)
 </code>
@@ -42,7 +41,6 @@ while True :
     # si le BP est actionné, on allume une LED avec la fonction display.set_pixel(x, y, value)
     if (. . . . . . . . ) :
         . . . . . . . . . . .
-
 </code>
 </pre>
 
@@ -51,8 +49,8 @@ Que doit faire le programme ? Après avoir configuré les entrées/sorties, la 
 Pour obtenir de l'aide sur les fonctions is_pressed(), display,set_pixel( et sur la structure de contrôle if, allez sur les pages https://microbit-micropython.readthedocs.io/fr/latest/
 
 Pour programmer :
-    • En ligne avec  https://python.microbit.org/v/2 avec Google Chrome
-    • ou bien Mu s’il est installé sur le PC
+* En ligne avec  https://python.microbit.org/v/2 avec Google Chrome
+* ou bien Mu s’il est installé sur le PC
 
 On allumera la LED au centre de la matrice de LEDs
 
