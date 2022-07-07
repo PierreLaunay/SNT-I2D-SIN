@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jun 26 17:23:36 2022
+
+@author: pierre
+"""
+
+import tkinter
+import networkx as nx
+import matplotlib.pyplot as plt
+G=nx.Graph()  #G=nx.DiGraph() Graph non directionnel, DiGraph directionnel
+
+class IHM(tkinter.Frame) : # class IHM(Frame)
+    def __init__(self, fenetre, Noms,table,boucle):
+        tkinter.Frame.__init__(self, fenetre)
+        self.noms = Noms
+        self.numberLines = len(table)+1
+        self.numberColumns = len(Noms)
+        self.table = table
+        self.pack(fill=tkinter.BOTH)
+        self.nb=max([len(n) for n in self.noms])# nombre caractère max des noms
+        self.remplir_entete(0,1)  #colonne noms
+        self.remplir_entete(1,0) # ligne noms
+        self.remplir() # contenu tableau
+        if boucle :
+            bouton = tkinter.Button(self,text="Valider",command=self.stock)
+            bouton.grid(row=self.numberLines,column=self.numberColumns//2)
+
+    def remplir_entete(self,r,c):
+        for i in range(self.numberColumns): #affichage noms colonne
+            cell = tkinter.Entry(self)
+            cell.configure(width=self.nb)
+            cell.insert(0,self.noms[i])
+            cell.grid(row = r*i, column = c*i)
+    def remplir(self):
+        self.data = list()
+        for i in range(self.numberLines-1): # remplissage table
+            line = list()
+            for j in range(self.numberColumns-1):
+                cell = tkinter.Entry(self)
+                cell.configure(width=self.nb)
+                cell.insert(0, self.table[i][j])
+                line.append(cell)
+                cell.grid(row = i+1, column = j+1)
+            self.data.append(line)
+    def stock(self):
+        self.grille=[[colonne.get() for colonne in ligne] for ligne in self.data]
+        self.liaison = [(self.noms[i+1],self.noms[j+1]) for i,ligne in enumerate(self.data) for j,colonne in enumerate(ligne) if colonne.get() != '0']
+        for element in self.noms[1:] : G.add_node(element)
+        for ligne in self.liaison : G.add_edge(*ligne)
+        x=nx.floyd_warshall(G)
+        self.tableau=[[int(x[l][m]) for m in self.noms[1:]] for l in self.noms[1:]]
+        nx.draw(G, with_labels=True, font_weight='bold')
+        plt.show()
+        sl=[sum(ligne) for ligne in self.tableau]# somme de chaque ligne
+        maxl=[max(ligne) for ligne in self.tableau]# distance maximale de chaque ligne
+        sml={(s,m):[i for ((i,s1),m1) in zip(enumerate(sl),maxl) if s==s1 and m==m1] for ((i,s),m) in zip(enumerate(sl),maxl)}
+        for i in sml[min(sml)]: print("centre :",self.noms[i+1]) #attention '0' vide dans noms
+        print("rayon",min(sml)[1],", diamètre",max(sml)[1])
+        self.tableau.append(sl) # vrai si tableau symétrique uniquement sinon sc=[sum(c) for c in zip(*table1)]
+        self.tableau.append(maxl)# vrai si tableau symétrique uniquement sinon maxc = [max(c) for c in zip(*table1)]
+        self.resultats = IHM(tkinter.Tk(), self.noms,self.tableau,False)
+# Début du programme
+anv=['','Alban','Béatrice','Charles','Déborah','Éric','Fatima','Gérard','Hélène']
+taol=[(len(anv)-1)*[0]]*(len(anv)-1) #vide
+taol1=[[0]+[1]*(len(anv)-2)]+[(len(anv)-1)*[0]]*(len(anv)-2) #pour test
+fenetre = tkinter.Tk()
+interface = IHM(fenetre, anv,taol1,True)
+interface.mainloop()

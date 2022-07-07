@@ -137,7 +137,7 @@ nx.draw(G, with_labels=True, font_weight='bold') # Préparation de l'affichage
 plt.show() # affichage
 
 x=nx.floyd_warshall(G) # utilisation de l'algorithme de Floyd-Warshall
-tableau=[[x[l][m] for m in noeuds] for l in noeuds]
+tableau=[[int(x[l][m]) for m in noeuds] for l in noeuds]
 somme=[sum(ligne) for ligne in tableau] # somme de chaque ligne
 dmax=[max(ligne) for ligne in tableau] # distance maximale de chaque ligne
 sml={(s,m):[i for ((i,s1),m1) in zip(enumerate(somme),dmax) if s==s1 and m==m1] for ((i,s),m) in zip(enumerate(somme),dmax)}
@@ -155,3 +155,4 @@ df["rayon"]=list_rayon
 df["diametre"]=list_diametre
 print(df)
 df.to_csv(fichier[:-7]+'csv')
+# version prof

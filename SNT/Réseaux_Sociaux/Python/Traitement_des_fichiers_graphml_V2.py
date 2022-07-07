@@ -137,12 +137,8 @@ for (source,destination) in  aretes : G.add_edge(source,destination)
 #plt.show() # affichage
 
 x=nx.floyd_warshall(G) # utilisation de l'algorithme de Floyd-Warshall
-tableau=[[x[l][m] for m in noeuds] for l in noeuds]
-"""
-A faire par les élèves
-somme=[sum(ligne) for ligne in tableau] # somme de chaque ligne
-dmax=[max(ligne) for ligne in tableau] # distance maximale de chaque ligne
-"""
+tableau=[[int(x[l][m]) for m in noeuds] for l in noeuds]
+
 # A modifier :
 somme =['' for ligne in tableau] # on veut la somme de chaque ligne
 dmax = ['' for ligne in tableau] # on veut la distance maximale pour chaque ligne
@@ -153,3 +149,4 @@ df["dist_max"]=dmax
 print(df)
 print("En déduire le rayon, le diamètre et le centre")
 df.to_csv(fichier[:-7]+'csv')
+# version eleve
